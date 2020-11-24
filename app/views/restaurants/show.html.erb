@@ -1,4 +1,7 @@
-<h1>Show page</h1>
+<div class="show_banner">
+   <h1><%= @restaurant.name %></h1>
+   <p><%= @restaurant.description %></p>
+</div>
 <% @restaurant.menus.each do |menu| %>
  <%  menu.menu_items.each do |items| %>
     <%= items.dish.name  %>  
