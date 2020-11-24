@@ -1,1 +1,57 @@
-<h1>Index Page</h1>
+<h1>Restaurants Near You</h1>
+
+
+<!-- Side navigation -->
+<div class="sidenav">
+  <a href="#">Tasting Menu</a>
+    <p class="dropdown-btn">Cuisine
+    <i class="fa fa-caret-down"></i>
+    </p>
+  <div class="dropdown-container">
+    <a href="#">British</a>
+    <a href="#">French</a>
+    <a href="#">Japanese</a>
+  </div>
+      <p class="dropdown-btn">Dietary
+    <i class="fa fa-caret-down"></i>
+    </p>
+  <div class="dropdown-container">
+    <a href="#">Vegetarian</a>
+    <a href="#">Vegan</a>
+    <a href="#">Gluten Free</a>
+  </div>
+      <p class="dropdown-btn">Rating
+    <i class="fa fa-caret-down"></i>
+    </p>
+  <div class="dropdown-container">
+    <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+    <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+    <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="main">
+<div class="container justify-content-center">
+  <div class="row">
+      <div class="card-product-infos p-4">
+        <% @restaurants[0..2].each do |restaurant| %>
+        <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
+        <h2><%= restaurant.name %></h2>
+        <p><%= restaurant.description %></p>
+        <% end %>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="card-product-infos p-4">
+        <% @restaurants[3..5].each do |restaurant| %>
+        <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
+        <h2><%= restaurant.name %></h2>
+        <p><%= restaurant.description %></p>
+        <% end %>
+      </div>
+  </div>
+</div>
+</div>
+
