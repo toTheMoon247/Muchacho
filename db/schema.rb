@@ -10,20 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_144154) do
+ActiveRecord::Schema.define(version: 2020_11_23_170520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.integer "cost"
+    t.string "meal_category"
+    t.string "dietary"
+    t.text "instructions"
+    t.integer "prep_time"
+    t.string "threed_model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "menu_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_menu_items_on_dish_id"
+    t.index ["menu_id"], name: "index_menu_items_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.boolean "tasting"
+    t.integer "discount"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+  end
+
   create_table "orders", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "wine_id", null: false
     t.integer "total_cost_cents", null: false
     t.bigint "restaurant_id"
     t.bigint "user_id", null: false
     t.integer "discount_percentage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_orders_on_dish_id"
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["wine_id"], name: "index_orders_on_wine_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -53,6 +87,23 @@ ActiveRecord::Schema.define(version: 2020_11_23_144154) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wines", force: :cascade do |t|
+    t.string "name"
+    t.integer "cost"
+    t.string "year"
+    t.text "description"
+    t.bigint "dish_id"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_wines_on_dish_id"
+    t.index ["restaurant_id"], name: "index_wines_on_restaurant_id"
+  end
+
+  add_foreign_key "menu_items", "dishes"
+  add_foreign_key "menu_items", "menus"
+  add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "users"
+  add_foreign_key "orders", "wines"
 end
