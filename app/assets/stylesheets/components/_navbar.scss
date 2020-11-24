@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #121b2a;
+  background-color: transparent;
+  transition: 0.8s background-color ease;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +11,30 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.new-font {
+  font-family: 'Playfair Display', serif;
+  color: #e5ae35;
+  padding-left: 20vh;
+}
+
+.navbar-fixed-top.scrolled {
+  background-color: #121b2a  !important;
+  transition: background-color 700ms linear;
+}
+
+.btn-new {
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #e5ae35;
+  color: #121b2a;
+  padding: 15px 32px;
+}
+
+.btn-new:hover {
+  text-decoration: none;
+  background-color: #121b2a;
+  color: #e5ae35;
+  transition: 0.3s;
 }
