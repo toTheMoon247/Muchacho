@@ -34,6 +34,7 @@ document.addEventListener('turbolinks:load', () => {
 
   // Call your functions here, e.g:
   // initSelect2();
+  initUpdateNavbarOnScroll();
 
 console.log("doc ready")
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -52,10 +53,4 @@ for (var i = 0; i < dropdown.length; i++) {
 
 }});
 
-
-
-
-  // Call your JS functions here
-  initUpdateNavbarOnScroll();
-});
 
