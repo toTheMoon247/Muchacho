@@ -55,17 +55,17 @@ meal_category = ["appetizer", "antipasti", "starter", "main", "dessert", "primi"
 dietary = ["None", "Gluten Free", "Vegan", "Vegetarian"]
 menu = ["A la carte", "Tasting Menu"]
 
-minestrone = Dish.new(name:"Minestrone" , cost: 900 ,meal_category: meal_category[3] ,dietary: dietary[4] ,instructions: "Ready to serve" ,prep_time: 0 )
+minestrone = Dish.new(name:"Minestrone" , cost: 900 ,meal_category: meal_category[2] ,dietary: dietary[4] ,instructions: "Ready to serve" ,prep_time: 0 )
 minestrone.save!
 MenuItem.create(menu_id: a_la_carte.id,  dish: minestrone)
 
-salmontartare = Dish.new(name:"Salmon Tartare" , cost: 1100 ,meal_category: meal_category[3] ,dietary: dietary[0] ,instructions: "Ready to serve" ,prep_time: 0 )
+salmontartare = Dish.new(name:"Salmon Tartare" , cost: 1100 ,meal_category: meal_category[2] ,dietary: dietary[0] ,instructions: "Ready to serve" ,prep_time: 0 )
 salmontartare.save!
 MenuItem.create(menu_id: a_la_carte.id, dish: salmontartare)
 MenuItem.create(menu_id: tasting.id, dish: salmontartare)
 
 
-coppa = Dish.new(name:"Coppa with Red William Pear" , cost: 1000 ,meal_category: meal_category[3] ,dietary: dietary[0] ,instructions: "Ready to serve" ,prep_time: 0 )
+coppa = Dish.new(name:"Coppa with Red William Pear" , cost: 1000 ,meal_category: meal_category[2] ,dietary: dietary[0] ,instructions: "Ready to serve" ,prep_time: 0 )
 coppa.save!
 MenuItem.create(menu_id: a_la_carte.id, dish: coppa)
 
