@@ -34,8 +34,6 @@ sexyfish.save!
 
 jsheeky = Restaurant.new(name: "J Sheeky", description: "Iconic London Fish Restaurant", category: "British", address: "28-32 St Martin's Court London WC2N 4AL")
 jsheeky.save!
-jsheeky = Restaurant.new(name: "J Sheeky", description: "Iconic London Fish Restaurant", category: "British", address: "28-32 St Martin’s Court London WC2N 4AL")
-jsheeky.save!
 
 puts "Creating a user"
 jack = User.create!(email:"muchacho@gmail.com", password:"password")
