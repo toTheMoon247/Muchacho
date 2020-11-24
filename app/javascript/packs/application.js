@@ -31,6 +31,31 @@ import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
+
+  // Call your functions here, e.g:
+  // initSelect2();
+
+console.log("doc ready")
+var dropdown = document.getElementsByClassName("dropdown-btn");
+
+for (var i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    console.log("click", i)
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+
+}});
+
+
+
+
   // Call your JS functions here
   initUpdateNavbarOnScroll();
 });
+
