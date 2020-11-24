@@ -2,8 +2,23 @@
    <h1><%= @restaurant.name %></h1>
    <p><%= @restaurant.description %></p>
 </div>
-<% @restaurant.menus.each do |menu| %>
- <%  menu.menu_items.each do |items| %>
-    <%= items.dish.name  %>  
- <% end %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="cards">
+			<% @restaurant.menus.each do |menu| %>
+				<% menu.menu_items.each do |items| %>  
+					<div class="card-dish">
+					<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+						<div class="card-dish-infos">
+							<div>
+								<h2><%= items.dish.name  %></h2>
+								<p>Short description here!</p>
+							</div>
+							<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
