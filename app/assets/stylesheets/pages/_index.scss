@@ -1,6 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
 @import "sign_up";
+
+
+* {
+  box-sizing: border-box;
+}
+
 
 .card-product img {
   height: 100%;
@@ -24,6 +31,8 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .container {
@@ -74,8 +83,8 @@ height: 250px;
 
 /* Style page content */
 .main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+  width: 75%;
+  float: right;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
@@ -91,6 +100,17 @@ height: 250px;
   padding-left: 8px;
 }
 
-/* Optional: Style the caret down icon */
+.restaurant-card {
+  color: #121b2a;
+  font-size: 24px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding:10px;
+}
+
+.restaurant-card p {
+font-size: 16px;
+}
+
 
 

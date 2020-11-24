@@ -1,18 +1,19 @@
 <h1>Restaurants Near You</h1>
+<%= link_to "Reset Filters", restaurants_path %>
 
 
 <!-- Side navigation -->
 <div class="sidenav">
   <a href="#">Tasting Menu</a>
-    <p class="dropdown-btn">Cuisine
+    <p class="dropdown-btn" id="dropdown-category">Cuisine
     <i class="fa fa-caret-down"></i>
     </p>
   <div class="dropdown-container">
-    <a href="#">British</a>
-    <a href="#">French</a>
-    <a href="#">Japanese</a>
+    <%= link_to "British", restaurants_path( category: "British"), class:"filter-button"%>
+    <%= link_to "French", restaurants_path( category: "French"), class:"filter-button"%>
+    <%= link_to "Japanese", restaurants_path( category: "Japanese"), class:"filter-button"%>
   </div>
-      <p class="dropdown-btn">Dietary
+      <p class="dropdown-btn" id="dropdown-dietary">Dietary
     <i class="fa fa-caret-down"></i>
     </p>
   <div class="dropdown-container">
@@ -20,7 +21,7 @@
     <a href="#">Vegan</a>
     <a href="#">Gluten Free</a>
   </div>
-      <p class="dropdown-btn">Rating
+      <p class="dropdown-btn" id="dropdown-rating">Rating
     <i class="fa fa-caret-down"></i>
     </p>
   <div class="dropdown-container">
@@ -32,26 +33,19 @@
 
 <!-- Page content -->
 <div class="main">
-<div class="container justify-content-center">
-  <div class="row">
-      <div class="card-product-infos p-4">
-        <% @restaurants[0..2].each do |restaurant| %>
+    <div class="row">
+        <% @restaurants.each do |restaurant| %>
+        <div class="col-4">
+        <div class="restaurant-card">
         <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
         <h2><%= restaurant.name %></h2>
         <p><%= restaurant.description %></p>
+        </div>
+        </div>
         <% end %>
-      </div>
-  </div>
 
-  <div class="row">
-      <div class="card-product-infos p-4">
-        <% @restaurants[3..5].each do |restaurant| %>
-        <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
-        <h2><%= restaurant.name %></h2>
-        <p><%= restaurant.description %></p>
-        <% end %>
-      </div>
-  </div>
-</div>
+
+    </div>
+
 </div>
 
