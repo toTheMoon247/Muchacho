@@ -29,6 +29,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { backgroundVideo } from '../components/bideo';
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -48,7 +49,15 @@ for (var i = 0; i < dropdown.length; i++) {
       dropdownContent.style.display = "block";
     }
   });
-
+  
 }});
 
+
+document.addEventListener('turbolinks:load', () => {
+
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
+  backgroundVideo();
+
+});
 
