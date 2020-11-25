@@ -30,7 +30,7 @@ import "bootstrap";
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
-
+import { initAutocomplete } from '../components/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
 
   // Call your functions here, e.g:
@@ -49,7 +49,7 @@ for (var i = 0; i < dropdown.length; i++) {
       dropdownContent.style.display = "block";
     }
   });
-  
+
 }});
 
 const initCards = () => {
@@ -71,5 +71,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   backgroundVideo();
   initCards();
+  initAutocomplete()
+
 });
 
