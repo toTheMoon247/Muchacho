@@ -3,16 +3,6 @@
 @import "sign_up";
 
 
-* {
-  box-sizing: border-box;
-}
-
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
@@ -33,19 +23,13 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.container {
-display: flex;
-flex-flow: row nowrap;
-height: 250px;
-}
-
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 220px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top: 150px; /* Stay at the top */
+  top: 180px; /* Stay at the top */
   left: 0;
   background-color: #121b2a; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -54,6 +38,15 @@ height: 250px;
 
 /* The navigation menu links */
 .sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #e5ae35;
+  display: block;
+  background-color: #121b2a;
+}
+
+.sidenav label {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
@@ -110,5 +103,11 @@ height: 250px;
 font-size: 16px;
 }
 
+.index-container {
+margin-top: 100px;
+}
 
+.checkbox {
+ background-color: green;
+}
 

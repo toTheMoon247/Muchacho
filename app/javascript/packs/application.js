@@ -29,6 +29,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { backgroundVideo } from '../components/bideo';
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -36,12 +37,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initUpdateNavbarOnScroll();
 
-console.log("doc ready")
 var dropdown = document.getElementsByClassName("dropdown-btn");
 
 for (var i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function() {
-    console.log("click", i)
     this.classList.toggle("active");
     var dropdownContent = this.nextElementSibling;
     if (dropdownContent.style.display === "block") {
@@ -50,7 +49,15 @@ for (var i = 0; i < dropdown.length; i++) {
       dropdownContent.style.display = "block";
     }
   });
-
+  
 }});
 
+
+document.addEventListener('turbolinks:load', () => {
+
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
+  backgroundVideo();
+
+});
 
