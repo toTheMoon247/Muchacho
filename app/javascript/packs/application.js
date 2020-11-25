@@ -34,13 +34,12 @@ document.addEventListener('turbolinks:load', () => {
 
   // Call your functions here, e.g:
   // initSelect2();
+  initUpdateNavbarOnScroll();
 
-console.log("doc ready")
 var dropdown = document.getElementsByClassName("dropdown-btn");
 
 for (var i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function() {
-    console.log("click", i)
     this.classList.toggle("active");
     var dropdownContent = this.nextElementSibling;
     if (dropdownContent.style.display === "block") {
@@ -52,10 +51,4 @@ for (var i = 0; i < dropdown.length; i++) {
 
 }});
 
-
-
-
-  // Call your JS functions here
-  initUpdateNavbarOnScroll();
-});
 
