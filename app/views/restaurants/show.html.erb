@@ -3,22 +3,114 @@
    <p><%= @restaurant.description %></p>
 </div>
 <div class="container">
+
+	<h2> Tasting Menu </h2>
 	<div class="row">
 		<div class="cards">
 			<% @restaurant.menus.each do |menu| %>
+			<% if menu.tasting == true  %>
 				<% menu.menu_items.each do |items| %>  
-					<div class="card-dish">
-					<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
-						<div class="card-dish-infos">
-							<div>
-								<h2><%= items.dish.name  %></h2>
-								<p>Short description here!</p>
+						<div class="card-dish">
+						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+							<div class="card-dish-infos">
+								<div>
+									<h2 class=><%= items.dish.name  %></h2>
+									
+										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+									
+								</div>
+								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 							</div>
-							<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 						</div>
-					</div>
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>
 	</div>
+
+
+	<h2> A la Carte </h2>
+	<h3> Starters </h3>
+	<div class="row">
+		<div class="cards">
+			<% @restaurant.menus.each do |menu| %>
+			<% if menu.tasting == false  %>
+				<% menu.menu_items.each do |items| %>  
+					<% if items.dish.meal_category == "starter"  %>
+						<div class="card-dish">
+						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+							<div class="card-dish-infos">
+								<div>
+									<h2 class=><%= items.dish.name  %></h2>
+									
+										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+									
+								</div>
+								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
+							</div>
+						</div>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+<h3> Main </h3>
+	<div class="row">
+		<div class="cards">
+			<% @restaurant.menus.each do |menu| %>
+			<% if menu.tasting == false  %>
+				<% menu.menu_items.each do |items| %>  
+					<% if items.dish.meal_category == "main"  %>
+						<div class="card-dish">
+						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+							<div class="card-dish-infos">
+								<div>
+									<h2 class=><%= items.dish.name  %></h2>
+									
+										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+									
+								</div>
+								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
+							</div>
+						</div>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+<h3> Desserts </h3>
+	<div class="row">
+		<div class="cards">
+			<% @restaurant.menus.each do |menu| %>
+			<% if menu.tasting == false  %>
+				<% menu.menu_items.each do |items| %>  
+					<% if items.dish.meal_category == "dessert"  %>
+						<div class="card-dish">
+						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+							<div class="card-dish-infos">
+								<div>
+									<h2 class=><%= items.dish.name  %></h2>
+									
+										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+									
+								</div>
+								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
+							</div>
+						</div>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+
 </div>
