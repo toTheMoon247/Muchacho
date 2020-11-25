@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_120509) do
+
+ActiveRecord::Schema.define(version: 2020_11_25_150358) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_11_25_120509) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "dish_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "dish_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_dish_orders_on_dish_id"
+    t.index ["order_id"], name: "index_dish_orders_on_order_id"
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -67,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_120509) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "dish_id", null: false
-    t.bigint "wine_id", null: false
+    t.bigint "dish_id"
+    t.bigint "wine_id"
     t.integer "total_cost_cents", null: false
     t.bigint "restaurant_id"
     t.bigint "user_id", null: false
@@ -110,6 +121,15 @@ ActiveRecord::Schema.define(version: 2020_11_25_120509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wine_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "wine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_wine_orders_on_order_id"
+    t.index ["wine_id"], name: "index_wine_orders_on_wine_id"
+  end
+
   create_table "wines", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
@@ -124,10 +144,14 @@ ActiveRecord::Schema.define(version: 2020_11_25_120509) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dish_orders", "dishes"
+  add_foreign_key "dish_orders", "orders"
   add_foreign_key "menu_items", "dishes"
   add_foreign_key "menu_items", "menus"
   add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "wines"
+  add_foreign_key "wine_orders", "orders"
+  add_foreign_key "wine_orders", "wines"
 end

@@ -10,7 +10,7 @@
 			<% @restaurant.menus.each do |menu| %>
 			<% if menu.tasting == true  %>
 				<% menu.menu_items.each do |items| %>  
-						<div class="card-dish">
+						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
@@ -38,7 +38,7 @@
 			<% if menu.tasting == false  %>
 				<% menu.menu_items.each do |items| %>  
 					<% if items.dish.meal_category == "starter"  %>
-						<div class="card-dish">
+						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
@@ -65,7 +65,7 @@
 			<% if menu.tasting == false  %>
 				<% menu.menu_items.each do |items| %>  
 					<% if items.dish.meal_category == "main"  %>
-						<div class="card-dish">
+						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
@@ -92,7 +92,7 @@
 			<% if menu.tasting == false  %>
 				<% menu.menu_items.each do |items| %>  
 					<% if items.dish.meal_category == "dessert"  %>
-						<div class="card-dish">
+						<div class="card-dish" data-dish-id="<%= items.dish.id %>"> 
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
@@ -114,3 +114,12 @@
 
 
 </div>
+
+  <div class="restaurant-cart">
+    <h5>Basket</h5>
+    <%= simple_form_for [@restaurant, @order] do |f| %>
+		<%= f.input :dish_id, as: :hidden %>
+    <%= f.submit 'book', class: 'btn btn-primary' %>
+    <%# <%= link_to "View Basket", dashboard_path, class: 'btn btn-checkout' %>
+    <% end %>
+  </div>
