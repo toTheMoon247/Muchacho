@@ -14,17 +14,17 @@
       <i class="fa fa-caret-down"></i>
       </p>
     <div class="dropdown-container">
-      <%= link_to "British", restaurants_path( category: "British"), class:"filter-button"%>
-      <%= link_to "French", restaurants_path( category: "French"), class:"filter-button"%>
-      <%= link_to "Japanese", restaurants_path( category: "Japanese"), class:"filter-button"%>
+      <%= link_to "British", restaurants_path( category: "British", query: @query), method: :get, class:"filter-button"%>
+      <%= link_to "French", restaurants_path( category: "French", query: @query), method: :get, class:"filter-button"%>
+      <%= link_to "Japanese", restaurants_path( category: "Japanese", query: @query), method: :get, class:"filter-button"%>
     </div>
       <p class="dropdown-btn" id="dropdown-dietary">Dietary
       <i class="fa fa-caret-down"></i>
       </p>
     <div class="dropdown-container">
-      <%= link_to "Vegetarian", restaurants_path( dietary: "Vegetarian"), class:"filter-button"%>
-      <%= link_to "Vegan", restaurants_path( dietary: "Vegan"), class:"filter-button"%>
-      <%= link_to "Gluten-Free", restaurants_path( dietary: "Gluten-Free"), class:"filter-button"%>
+      <%= link_to "Vegetarian", restaurants_path( dietary: "Vegetarian", query: @query), class:"filter-button"%>
+      <%= link_to "Vegan", restaurants_path( dietary: "Vegan", query: @query), class:"filter-button"%>
+      <%= link_to "Gluten-Free", restaurants_path( dietary: "Gluten-Free", query: @query), class:"filter-button"%>
     </div>
       <p class="dropdown-btn" id="dropdown-rating">Rating
       <i class="fa fa-caret-down"></i>
