@@ -52,12 +52,24 @@ for (var i = 0; i < dropdown.length; i++) {
   
 }});
 
+const initCards = () => {
+ const cards = document.querySelectorAll(".card-dish");
+ cards.forEach(card => {
+   card.addEventListener('click', e => {
+    const input = document.querySelector("#order_dish_id")
+    const array = input.value.split(",")
+    array.push(e.currentTarget.dataset.dishId)
+    input.value = array.join(",")
+   })
+ })  
+};
+
 
 document.addEventListener('turbolinks:load', () => {
 
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
-
+  initCards();
 });
 
