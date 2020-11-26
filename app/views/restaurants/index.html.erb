@@ -34,6 +34,7 @@
           <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
           <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
         </div>
+        <%= f.input :query , as: :hidden, input_html: {value: params.dig(:search, :query)} %>
         <%= f.button :submit, "Filter Results" %>
       </div>
     <% end %>
