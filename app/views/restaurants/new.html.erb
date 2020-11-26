@@ -1,0 +1,23 @@
+
+<div id="container">
+  <div id="row" class="d-flex justify-content-center p-3">
+    <div class="my-6">
+      <h1 id="index-title" class="my-5">Muchacho</h1>
+      <div class="form-container flex-column" >
+        <h3>New Restaurant</h3>
+      <div class="row m-2 justify-content-center">
+        <%= simple_form_for [@restaurant] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :address %>
+            <%= f.input :description %>
+            <%= f.input :category %>
+            <%= f.input :dietary %>
+
+            <%= f.submit 'New Restaurant', class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,10 +9,10 @@ const backgroundVideo = () => {
     bv.init({
       // Video element
       videoEl: document.querySelector('#background_video'),
-      
+
       // Container element
       container: document.querySelector('body'),
-      
+
       // Resize
       resize: true,
 
@@ -32,8 +32,8 @@ const backgroundVideo = () => {
       ],
 
       // What to do once video loads (initial frame)
-      
-  
+
+
     });
   }
 

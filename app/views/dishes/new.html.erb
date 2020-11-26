@@ -1,0 +1,26 @@
+<div id="container">
+  <div id="row" class="d-flex justify-content-center p-3">
+
+      <h1 id="index-title" class="my-5">Muchacho</h1>
+      <div class="form-container flex-column" >
+        <h3>New Dish</h3>
+      <div class="row m-2 justify-content-center">
+        <%= simple_form_for [@restaurant, @dish] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :cost %>
+            <%= f.input :meal_category %>
+            <%= f.input :instructions %>
+            <%= f.input :prep_time %>
+            <%= f.fields_for :tasting do |t| %>
+            <%= t.input :menu, as: :boolean %>
+            <% end %>
+
+            <%= f.submit 'New Dish', class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+      </div>
+
+  </div>
+</div>
+
