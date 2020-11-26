@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
     end
       @restaurants = @restaurants.where(category: params.dig(:search, :categories).reject(&:blank?)) if params.dig(:search, :categories)&.reject(&:blank?)&.any?
       @restaurants = @restaurants.where(dietary: params.dig(:search, :dietary).reject(&:blank?)) if params.dig(:search, :dietary)&.reject(&:blank?)&.any?
-
+      @menus = Menu.all
   end
 
 
