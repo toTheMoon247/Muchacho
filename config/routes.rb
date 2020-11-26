@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show, :new, :create] do
     resources :orders, only: [:new, :create, :show]
+    resources :wines, only: [:new, :create]
   end
   resources :orders, only: :index
 end

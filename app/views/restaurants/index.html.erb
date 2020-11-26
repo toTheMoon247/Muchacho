@@ -1,16 +1,6 @@
 <div class="index-container">
 <h1>Restaurants Near You</h1>
 
-
-    <div class="tasting">
-    Tasting Menus
-      <div class="pretty p-default p-switch p-fill">
-          <input type="checkbox" />
-          <div class="state p-warning">
-            <label> </label>
-          </div>
-      </div>
-    </div>
     <%= simple_form_for :search, url: restaurants_path, method: :get do |f| %>
       <div class="sidenav">
           <p class="dropdown-btn" id="dropdown-category">Cuisine
