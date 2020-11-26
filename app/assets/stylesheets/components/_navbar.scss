@@ -31,7 +31,7 @@
   text-decoration: none;
   background-color: #e5ae35;
   color: #121b2a;
-  padding: 15px 32px;
+  padding: 2vh 4vh;
 }
 
 .btn-new:hover {
@@ -39,4 +39,28 @@
   background-color: #121b2a;
   color: #e5ae35;
   transition: 0.3s;
+}
+
+
+@media(max-width: 992px) {
+
+
+  .new-font {
+  padding-left: 4vh;
+  font-size: 32px;
+}
+
+}
+
+@media(max-width: 768px) {
+  .navbar-lewagon {
+    grid-template-columns: 1fr;
+  }
+  .avatar {
+    padding-top: 3px;
+  }
+
+  .btn-new {
+  padding: 1vh 2vh;
+  }
 }
