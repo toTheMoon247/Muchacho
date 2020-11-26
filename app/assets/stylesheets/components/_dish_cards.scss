@@ -1,0 +1,55 @@
+
+.card-product {
+  overflow: hidden;
+  height: 24vh;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 24vh;
+  object-fit: cover;
+}
+
+
+.title_price {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .product-infos {
+  padding: 16px;
+}
+
+.dish_instructions {
+  overflow: hidden;
+  height: 24vh;
+  background: white;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.wine_title {
+  overflow: hidden;
+  background: white;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.row_decription{
+  padding: 16px;
+
+}

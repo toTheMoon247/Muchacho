@@ -1,4 +1,9 @@
 class DishesController < ApplicationController
+
+  def show
+    @dish = Dish.find(params[:id])
+  end
+
   def new
     # we need @restaurant in our `simple_form_for`
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -25,3 +30,4 @@ class DishesController < ApplicationController
     params.require(:dish).permit(:name, :cost, :meal_category, :dietary, :photo, :instructions, :prep_time)
   end
 end
+

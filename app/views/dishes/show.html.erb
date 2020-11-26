@@ -1,0 +1,46 @@
+<div class="show_banner">
+</div>
+<div class="container">
+<div class="dish_container">
+   <div class="card-product" id="dish-price" data-dish-id="<%= @dish.id %>">
+   <img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+   <div class="product-infos">
+      <div class="title_price">
+         <h2><%= @dish.name %></h2>
+         <h2>£ <%= @dish.cost / 100 %></h2 >
+      </div>
+      <div class="row_description">
+         <% if  @dish.dietary == "None" %>
+         <% else %> 
+           <p> <%= "Perfect for #{@dish.dietary} diets." %> </p>
+         <% end %>
+      </div>   
+   </div>
+   </div>
+   <div class="dish_instructions">
+      <h2><strong>Instructions:</strong></h2>
+      <div>
+         <p> <%= @dish.instructions %> </p>
+      </div>
+   </div>
+   <div class="wine_title">
+   <h2><strong>Perfect Pairing:</strong></h2>
+   </div>
+   <div class="card-product">
+   <img src="https://images.unsplash.com/photo-1546944517-4f38480ff03c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8d2luZSUyMGJvdHRsZXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=500&q=60" /> 
+      <div class="product-infos">
+         <div class="title_price">
+            <h2><%= @dish.wine.name %></h2>
+            <h2>£ 
+            <%= @dish.wine.cost / 100 %></h2>
+         </div>      
+         <div class="row_description">
+           <p> <%= @dish.wine.description  %> </p>
+         </div>      
+      </div>
+   </div>  
+   </div>
+  </div>
+
+
+
