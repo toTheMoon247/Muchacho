@@ -9,16 +9,16 @@
 		<div class="cards">
 			<% @restaurant.menus.each do |menu| %>
 			<% if menu.tasting == true  %>
-				<% menu.menu_items.each do |items| %>  
+				<% menu.menu_items.each do |items| %>
 						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
 									<h2 class=><%= items.dish.name  %></h2>
-									
+
 										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
 										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
-									
+
 								</div>
 								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 							</div>
@@ -36,17 +36,17 @@
 		<div class="cards">
 			<% @restaurant.menus.each do |menu| %>
 			<% if menu.tasting == false  %>
-				<% menu.menu_items.each do |items| %>  
+				<% menu.menu_items.each do |items| %>
 					<% if items.dish.meal_category == "starter"  %>
 						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
 									<h2 class=><%= items.dish.name  %></h2>
-									
+
 										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
 										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
-									
+
 								</div>
 								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 							</div>
@@ -63,17 +63,17 @@
 		<div class="cards">
 			<% @restaurant.menus.each do |menu| %>
 			<% if menu.tasting == false  %>
-				<% menu.menu_items.each do |items| %>  
+				<% menu.menu_items.each do |items| %>
 					<% if items.dish.meal_category == "main"  %>
 						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
 									<h2 class=><%= items.dish.name  %></h2>
-									
+
 										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
 										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
-									
+
 								</div>
 								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 							</div>
@@ -90,17 +90,17 @@
 		<div class="cards">
 			<% @restaurant.menus.each do |menu| %>
 			<% if menu.tasting == false  %>
-				<% menu.menu_items.each do |items| %>  
+				<% menu.menu_items.each do |items| %>
 					<% if items.dish.meal_category == "dessert"  %>
-						<div class="card-dish" data-dish-id="<%= items.dish.id %>"> 
+						<div class="card-dish" data-dish-id="<%= items.dish.id %>">
 						<img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
 							<div class="card-dish-infos">
 								<div>
 									<h2 class=><%= items.dish.name  %></h2>
-									
+
 										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
 										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
-									
+
 								</div>
 								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>
 							</div>
@@ -114,7 +114,7 @@
 
 
 </div>
-
+  <%= link_to 'Create a new Dish', new_restaurant_dish_path(@restaurant) %>
   <div class="restaurant-cart">
     <h5>Basket</h5>
     <%= simple_form_for [@restaurant, @order] do |f| %>
