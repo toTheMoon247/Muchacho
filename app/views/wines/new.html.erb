@@ -1,9 +1,9 @@
 <div id="container">
   <div id="row" class="d-flex justify-content-center p-3">
-    <div class="my-6">
-      <h1 id="index-title" class="my-5">Muchacho</h1>
+
+      <h1 id="index-title" class="my-5"></h1>
       <div class="form-container flex-column" >
-        <h3>New Restaurant</h3>
+        <h3>Add a Wine</h3>
       <div class="row m-2 justify-content-center">
         <%= simple_form_for [@dish, @wine] do |f| %>
             <%= f.input :name %>
@@ -17,6 +17,6 @@
         <% end %>
         </div>
       </div>
-    </div>
+
   </div>
 </div>

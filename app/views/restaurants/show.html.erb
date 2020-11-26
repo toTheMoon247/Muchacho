@@ -18,6 +18,7 @@
 
 										<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
 										<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+                    <%= link_to 'Add a new wine', new_dish_wine_path(items.dish) %>
 
 								</div>
 								<h2 class="card-trip-pricing">£<%= items.dish.cost / 100  %></h2>

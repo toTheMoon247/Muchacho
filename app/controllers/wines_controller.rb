@@ -10,7 +10,7 @@ class WinesController < ApplicationController
     @dish = Dish.find(params[:dish_id])
     @wine.dish = @dish
     @wine.save
-    redirect_to dish_path(@dish)
+    redirect_to restaurants_path(@restaurant)
   end
 
   private
