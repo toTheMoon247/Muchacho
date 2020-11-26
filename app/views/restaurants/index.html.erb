@@ -1,54 +1,62 @@
 <div class="index-container">
 <h1>Restaurants Near You</h1>
-<%= link_to "Reset Filters", restaurants_path %>
-
-<!-- Side navigation -->
-  <div class="sidenav">
-    <label >Tasting Menu
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-    </label>
 
 
-      <p class="dropdown-btn" id="dropdown-category">Cuisine
-      <i class="fa fa-caret-down"></i>
-      </p>
-    <div class="dropdown-container">
-      <%= link_to "British", restaurants_path( category: "British", query: @query), method: :get, class:"filter-button"%>
-      <%= link_to "French", restaurants_path( category: "French", query: @query), method: :get, class:"filter-button"%>
-      <%= link_to "Japanese", restaurants_path( category: "Japanese", query: @query), method: :get, class:"filter-button"%>
+    <div class="tasting">
+    Tasting Menus
+      <div class="pretty p-default p-switch p-fill">
+          <input type="checkbox" />
+          <div class="state p-warning">
+            <label> </label>
+          </div>
+      </div>
     </div>
-      <p class="dropdown-btn" id="dropdown-dietary">Dietary
-      <i class="fa fa-caret-down"></i>
-      </p>
-    <div class="dropdown-container">
-      <%= link_to "Vegetarian", restaurants_path( dietary: "Vegetarian", query: @query), class:"filter-button"%>
-      <%= link_to "Vegan", restaurants_path( dietary: "Vegan", query: @query), class:"filter-button"%>
-      <%= link_to "Gluten-Free", restaurants_path( dietary: "Gluten-Free", query: @query), class:"filter-button"%>
-    </div>
-      <p class="dropdown-btn" id="dropdown-rating">Rating
-      <i class="fa fa-caret-down"></i>
-      </p>
-    <div class="dropdown-container">
-      <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-      <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-      <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-    </div>
-  </div>
+    <%= simple_form_for :search, url: restaurants_path, method: :get do |f| %>
+      <div class="sidenav">
+          <p class="dropdown-btn" id="dropdown-category">Cuisine
+          <i class="fa fa-caret-down"></i>
+          </p>
+        <div class="dropdown-container">
+
+          <%= f.input :categories, collection: ["British", "French", "Japanese"], as: :check_boxes, wrapper_html: { class: 'category_options' } %>
+        </div>
+          <p class="dropdown-btn" id="dropdown-dietary">Dietary
+          <i class="fa fa-caret-down"></i>
+          </p>
+        <div class="dropdown-container">
+          <%= f.input :dietary, collection: ["Vegetarian", "Vegan", "Gluten-Free"], as: :check_boxes, wrapper_html: { class: 'dietary_options' }  %>
+        </div>
+          <p class="dropdown-btn" id="dropdown-rating">Rating
+          <i class="fa fa-caret-down"></i>
+          </p>
+        <div class="dropdown-container">
+          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+        </div>
+        <%= f.button :submit, "Filter Results" %>
+      </div>
+    <% end %>
 
 <!-- Page content -->
   <div class="main">
       <div class="row">
         <% @restaurants.each do |restaurant| %>
-        <div class="col-4">
-          <div class="restaurant-card">
-            <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
-            <h2><%= restaurant.name %></h2>
-            <p class="content"><%= restaurant.description %></p>
-          </div>
-        </div>
+          <%= link_to(restaurant_path(restaurant)) do %>
+            <div class="col-6">
+              <div class="restaurant-card">
+                <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
+                <h2> <%= restaurant.name %></h2>
+                <p class= "content"><%= restaurant.description %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
   </div>
 </div>
+
+
+
+
 

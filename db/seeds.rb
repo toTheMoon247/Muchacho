@@ -27,7 +27,7 @@ User.destroy_all
 
 
 puts "Creating Fake Restaurants"
-daphnes = Restaurant.new(name: "Daphne's", description: "Traditional Italian Dining", category: "Italian", address: "114 Draycott Ave, Chelsea, SW3 3AE")
+daphnes = Restaurant.new(name: "Daphne's", description: "Traditional Italian Dining", category: "Italian", dietary: "Vegetarian", address: "114 Draycott Ave, Chelsea, SW3 3AE")
 daphnes.save!
 scotts = Restaurant.new(name: "Scott's", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Mount Street, London, W1K 2HE")
 scotts.save!
