@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
         end
           @order.calculate_costs
 
-        redirect_to orders_index_path
+        redirect_to orders_path
       else
           render "restaurant/show"
       end
