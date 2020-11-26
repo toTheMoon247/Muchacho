@@ -18,9 +18,12 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all
     end
+    @restaurants = @restaurants.near(params[:query], 6) if params[:query].present?
   end
+
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @order = Order.new
   end
 end

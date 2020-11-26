@@ -30,7 +30,7 @@ import "bootstrap";
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
-
+import { initAutocomplete } from '../components/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
 
   // Call your functions here, e.g:
@@ -49,8 +49,20 @@ for (var i = 0; i < dropdown.length; i++) {
       dropdownContent.style.display = "block";
     }
   });
-  
+
 }});
+
+const initCards = () => {
+ const cards = document.querySelectorAll(".card-dish");
+ cards.forEach(card => {
+   card.addEventListener('click', e => {
+    const input = document.querySelector("#order_dish_id")
+    const array = input.value.split(",")
+    array.push(e.currentTarget.dataset.dishId)
+    input.value = array.join(",")
+   })
+ })  
+};
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -58,6 +70,8 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
+  initCards();
+  initAutocomplete()
 
 });
 
