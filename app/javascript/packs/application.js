@@ -36,6 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initUpdateNavbarOnScroll();
+  tastingMenuAvailable();
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
 
@@ -61,7 +62,7 @@ const initCards = () => {
     array.push(e.currentTarget.dataset.dishId)
     input.value = array.join(",")
    })
- })  
+ })
 };
 
 
