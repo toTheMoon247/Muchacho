@@ -16,8 +16,10 @@ class DishesController < ApplicationController
     # we need `restaurant_id` to associate review with corresponding restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
     if @dish.save!
-      MenuItem.create(dish: @dish, menu: @restaurant.alacarte_menu)
-      MenuItem.create(dish: @dish, menu: @restaurant.tasting_menu) if params.dig(:dish, :tasting, :menu) == "1"
+      Menu.create(restaurant: @restaurant, tasting: false) if @restaurant.alacarte_menu.nil?
+      Menu.create(restaurant: @restaurant, tasting: true) if @restaurant.tasting_menu.nil?
+      MenuItem.create!(dish: @dish, menu: @restaurant.alacarte_menu)
+      MenuItem.create!(dish: @dish, menu: @restaurant.tasting_menu) if params.dig(:dish, :tasting, :menu) == "1"
       redirect_to restaurant_path(@restaurant)
     else
       render :new

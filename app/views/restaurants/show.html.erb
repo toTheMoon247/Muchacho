@@ -56,6 +56,7 @@
 																		<p> <%= items.dish.instructions %> </p>
 																	</div>
 															</div>
+                               <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
 															</div>
@@ -73,7 +74,7 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
 																	</div>
 															</div>  
-															
+														<% end %>
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -151,6 +152,7 @@
 																		<p> <%= items.dish.instructions %> </p>
 																	</div>
 															</div>
+                              <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
 															</div>
@@ -168,7 +170,7 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
 																	</div>
 															</div>  
-															
+														<% end %>
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -245,6 +247,7 @@
 																		<p> <%= items.dish.instructions %> </p>
 																	</div>
 															</div>
+                               <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
 															</div>
@@ -262,6 +265,7 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
 																	</div>
 															</div>
+                            <% end %>
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -339,6 +343,7 @@
 																		<p> <%= items.dish.instructions %> </p>
 																	</div>
 															</div>
+                               <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
 															</div>
@@ -356,7 +361,7 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
 																	</div>
 															</div>  
-															
+														<% end %>	
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -385,28 +390,25 @@
 
 
 	</div>
-
+  <% if current_user.admin? %>
 	<%= link_to 'Create a new Dish', new_restaurant_dish_path(@restaurant) %>
+  <% end %>
 
 	<div class="restaurant-cart">
     <h2>Basket</h2>
   
 		<div class="basket-info"></div>
+
+              
     <%= simple_form_for [@restaurant, @order] do |f| %>
-		<%= f.input :dish_id, as: :hidden %>
-		<%= f.input :wine_id, as: :hidden %>
-		<%= @order.dish %>
+    <%= f.input :dish_id, as: :hidden %>
+    <%= f.input :wine_id, as: :hidden %>
+    <%= @order.dish %>
     <%= f.submit 'Order', class: 'btn btn-primary' %>
 	
     <%# <%= link_to "View Basket", dashboard_path, class: 'btn btn-checkout' %>
     <% end %>
   </div>
-
-	</div>
-
-	
-
-	</div>
-
-  
+  </div>
+</div>
 

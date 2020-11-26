@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :menus, dependent: :destroy
   has_many :menu_items, through: :menus
   has_many :orders, dependent: :destroy
+  has_many :dishes, through: :menu_items
   has_one_attached :photo
   include PgSearch::Model
   pg_search_scope :global_search,
