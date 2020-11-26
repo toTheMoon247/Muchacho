@@ -3,6 +3,7 @@ class Restaurant < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :menus, dependent: :destroy
   has_many :menu_items, through: :menus
+  has_many :orders, dependent: :destroy
   has_many :dishes, through: :menu_items
   has_one_attached :photo
   include PgSearch::Model
