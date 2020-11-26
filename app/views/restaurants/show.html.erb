@@ -21,7 +21,7 @@
 											<button type="button" class="btn link_to_modal" data-toggle="modal" data-target="#exampleModal_<%= items.dish.id %>">
 												<%= items.dish.name %>  
 											</button>
-											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 										<!-- Modal -->
 										<div class="modal fade" id="exampleModal_<%= items.dish.id %>" tabindex="-1" role="dialog" pearia-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document"> 
@@ -47,7 +47,7 @@
 																			<p> <%= "Perfect for #{items.dish.dietary} diets." %> </p>
 																		<% end %>
 																	</div>   
-																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 															</div>
 															</div>
 															<div class="dish_instructions">
@@ -116,7 +116,7 @@
 											<button type="button" class="btn link_to_modal" data-toggle="modal" data-target="#exampleModal_<%= items.dish.id %>">
 												<%= items.dish.name %>  
 											</button>
-											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 										<!-- Modal -->
 										<div class="modal fade" id="exampleModal_<%= items.dish.id %>" tabindex="-1" role="dialog" pearia-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document"> 
@@ -142,7 +142,7 @@
 																			<p> <%= "Perfect for #{items.dish.dietary} diets." %> </p>
 																		<% end %>
 																	</div>   
-																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 															</div>
 															</div>
 															<div class="dish_instructions">
@@ -210,7 +210,7 @@
 											<button type="button" class="btn link_to_modal" data-toggle="modal" data-target="#exampleModal_<%= items.dish.id %>">
 												<%= items.dish.name %>  
 											</button>
-											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 										<!-- Modal -->
 										<div class="modal fade" id="exampleModal_<%= items.dish.id %>" tabindex="-1" role="dialog" pearia-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document"> 
@@ -236,7 +236,7 @@
 																			<p> <%= "Perfect for #{items.dish.dietary} diets." %> </p>
 																		<% end %>
 																	</div>   
-																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 															</div>
 															</div>
 															<div class="dish_instructions">
@@ -261,8 +261,7 @@
 																		</div>
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
 																	</div>
-															</div>  
-															
+															</div>
 													</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -305,7 +304,7 @@
 											<button type="button" class="btn link_to_modal" data-toggle="modal" data-target="#exampleModal_<%= items.dish.id %>">
 												<%= items.dish.name %>  
 											</button>
-											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+											<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 										<!-- Modal -->
 										<div class="modal fade" id="exampleModal_<%= items.dish.id %>" tabindex="-1" role="dialog" pearia-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document"> 
@@ -331,7 +330,7 @@
 																			<p> <%= "Perfect for #{items.dish.dietary} diets." %> </p>
 																		<% end %>
 																	</div>   
-																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>">Add to Basket</button>
+																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
 															</div>
 															</div>
 															<div class="dish_instructions">
@@ -387,23 +386,22 @@
 
 	</div>
 
+	<%= link_to 'Create a new Dish', new_restaurant_dish_path(@restaurant) %>
+
 	<div class="restaurant-cart">
     <h2>Basket</h2>
-
-</div>
-  <%= link_to 'Create a new Dish', new_restaurant_dish_path(@restaurant) %>
-  <div class="restaurant-cart">
-    <h5>Basket</h5>
-
+  
+		<div class="basket-info"></div>
     <%= simple_form_for [@restaurant, @order] do |f| %>
 		<%= f.input :dish_id, as: :hidden %>
 		<%= f.input :wine_id, as: :hidden %>
 		<%= @order.dish %>
     <%= f.submit 'Order', class: 'btn btn-primary' %>
+	
     <%# <%= link_to "View Basket", dashboard_path, class: 'btn btn-checkout' %>
     <% end %>
   </div>
-<
+
 	</div>
 
 	

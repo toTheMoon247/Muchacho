@@ -19,8 +19,13 @@ class OrdersController < ApplicationController
           @dish_order = DishOrder.new(dish_id: dish.to_i, order: @order)
           @dish_order.save!
         end
+        wines = strong_params[:wine_id].split(",").reject(&:blank?) 
+        wines.each do |wine|
+          
+          @wine_order = WineOrder.new(wine_id: wine.to_i, order: @order)
+          @wine_order.save!
+        end
           @order.calculate_costs
-
         redirect_to orders_path
       else
           render "restaurant/show"
@@ -30,7 +35,7 @@ class OrdersController < ApplicationController
 
   private
   def strong_params
-    params.require(:order).permit(:dish_id)
+    params.require(:order).permit(:dish_id, :wine_id)
   end
 
 end

@@ -10,6 +10,6 @@ class Order < ApplicationRecord
   def calculate_costs
     dish_sum = dish_orders.map { |dish_order| dish_order.dish.cost }.sum
     wine_sum = wine_orders.map { |wine_order| wine_order.wine.cost }.sum
-    update_column("total_cost_cents", dish_sum + wine_sum)
+    update_column("total_cost_cents", (dish_sum / 100 + wine_sum / 100))
   end
 end
