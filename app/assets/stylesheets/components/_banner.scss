@@ -30,3 +30,27 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.show_banner {
+  background-size: cover;
+  background-position: center;
+  background-color: $m-blue;
+  padding-left: 10%;
+  background-repeat: no-repeat;
+  height: 15vh;
+}
+
+.show_banner h1 {
+  margin: 0;
+  color: $m-gold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.show_banner p {
+  font-size: 20px;
+  color: $m-platinium;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

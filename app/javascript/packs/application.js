@@ -29,8 +29,66 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { backgroundVideo } from '../components/bideo';
+import { initAutocomplete } from '../components/init_autocomplete';
+document.addEventListener('turbolinks:load', () => {
+
+  // Call your functions here, e.g:
+  // initSelect2();
+  initUpdateNavbarOnScroll();
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+
+for (var i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+
+}});
+
+const initCards = () => {
+ const cards = document.querySelectorAll("#dish_basket");
+ cards.forEach(card => {
+   card.addEventListener('click', e => {
+    const input = document.querySelector("#order_dish_id")
+    const array = input.value.split(",")
+    array.push(e.currentTarget.dataset.dishId)
+    const name = e.currentTarget.dataset.dishName
+    document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
+    input.value = array.join(",")
+   })
+ })  
+};
+
+const initWines = () => {
+  const cards = document.querySelectorAll("#wine_basket");
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+     const input = document.querySelector("#order_wine_id")
+     
+     const array = input.value.split(",")
+     array.push(e.currentTarget.dataset.dishId)
+     input.value = array.join(",")
+    })
+  })  
+ };
+
 
 document.addEventListener('turbolinks:load', () => {
+
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  backgroundVideo();
+  initCards();
+  initWines();
+  initAutocomplete();
+  console.log("hello");
+
 });
+
