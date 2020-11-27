@@ -182,7 +182,7 @@
                               <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
-																<%= link_to "Add wine",  new_restaurant_wine_path(items.dish.id) if current_user.admin?  %>
+																<%= link_to "Add wine",  new_dish_wine_path(items.dish.id) if current_user.admin?  %>
 															</div>
 															<div class="card-product">
 															<% if items.dish.wine.photo.attached?  %>
@@ -315,7 +315,7 @@
 																	</div>
 															</div>
 															<% else %>
-															<%= link_to "Add wine",  new_restaurant_wine_path(items.dish_id) if current_user.admin?  %>
+															<%= link_to "Add wine",  new_dish_wine_path(items.dish_id) if current_user.admin?  %>
                             <% end %>
 													</div>
 													<div class="modal-footer">
@@ -407,7 +407,7 @@
                                <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
-															<%= link_to "Add wine",  new_restaurant_wine_path(items.dish.id) if current_user.admin?  %>
+															<%= link_to "Add wine",  new_dish_wine_path(items.dish.id) if current_user.admin?  %>
 															</div>
 															<div class="card-product">
 															<% if items.dish.wine.photo.attached?  %>
