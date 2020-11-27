@@ -7,12 +7,20 @@
 
 .restaurant-cart{
   position: sticky;
-  top: 0;
+  top: 200px;
+  width: 70%;
+  margin-left: 16px;
+  height: 40vh;
+  border-style: solid 2px gray;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px;
 }
 
 .cards{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 16px;
 }
