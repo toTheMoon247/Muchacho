@@ -182,6 +182,7 @@
                               <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
+																<%= link_to "Add wine",  new_restaurant_wine_path(items.dish.id) if current_user.admin?  %>
 															</div>
 															<div class="card-product">
 															<% if items.dish.wine.photo.attached?  %>
@@ -292,6 +293,7 @@
                                <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
+															
 															</div>
 															<div class="card-product">
 															<% if items.dish.wine.photo.attached?  %>
@@ -312,6 +314,8 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>
 																	</div>
 															</div>
+															<% else %>
+															<%= link_to "Add wine",  new_restaurant_wine_path(items.dish_id) if current_user.admin?  %>
                             <% end %>
 													</div>
 													<div class="modal-footer">
@@ -403,6 +407,7 @@
                                <% if items.dish.wine %>
 															<div class="wine_title">
 															<h2><strong>Perfect Pairing:</strong></h2>
+															<%= link_to "Add wine",  new_restaurant_wine_path(items.dish.id) if current_user.admin?  %>
 															</div>
 															<div class="card-product">
 															<% if items.dish.wine.photo.attached?  %>
