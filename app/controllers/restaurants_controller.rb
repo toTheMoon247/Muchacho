@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
+    @restaurants = Restaurant.all
     @restaurants = @restaurants.near(params.dig(:search, :query), 6) if params.dig(:search, :query).present?
     if params.dig(:search, :categories)&.any? || params.dig(:search, :dietary)&.any?
       # categories = params[:search][:categories][1..-1]
@@ -29,13 +30,16 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(strong_params)
-    redirect_to restaurants_path(@restaurant.id) if @restaurant.save!
-    render :new
+    if @restaurant.save
+      redirect_to restaurants_path(@restaurant.id)
+    else
+      render :new
+    end
   end
 
    private
 
   def strong_params
-    params.require(:restaurant).permit(:name, :address, :description, :dietary, :category, :photo)
+    params.require(:restaurant).permit(:name, :address, :description, :dietary, :category, :photo, :instagram_url, :spotify_url, :phone_number)
   end
 end
