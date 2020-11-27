@@ -91,6 +91,8 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>
 																	</div>
 															</div>
+															<% else %>
+															<%= link_to "Add wine",  new_dish_wine_path(items.dish_id) if current_user.admin?  %>
 														<% end %>
 													</div>
 													<div class="modal-footer">
@@ -203,6 +205,8 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>
 																	</div>
 															</div>
+															<% else %>
+															<%= link_to "Add wine",  new_dish_wine_path(items.dish_id) if current_user.admin?  %>
 														<% end %>
 													</div>
 													<div class="modal-footer">
@@ -428,6 +432,8 @@
 																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>
 																	</div>
 															</div>
+															<% else %>
+															<%= link_to "Add wine",  new_dish_wine_path(items.dish_id) if current_user.admin?  %>
 														<% end %>
 													</div>
 													<div class="modal-footer">
