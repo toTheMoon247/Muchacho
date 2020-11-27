@@ -47,7 +47,7 @@
 																			<p> <%= "Perfect for #{items.dish.dietary} diets." %> </p>
 																		<% end %>
 																	</div>   
-																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
+																	<button type="button" class="btn btn-primary py-2" id="dish_basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>" >Add to Basket</button>
 															</div>
 															</div>
 															<div class="dish_instructions">
@@ -71,7 +71,7 @@
 																		<div class="row_description">
 																			<p> <%= items.dish.wine.description  %> </p>
 																		</div>
-																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
+																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>      
 																	</div>
 															</div>  
 														<% end %>
@@ -167,7 +167,7 @@
 																		<div class="row_description">
 																			<p> <%= items.dish.wine.description  %> </p>
 																		</div>
-																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
+																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>      
 																	</div>
 															</div>  
 														<% end %>
@@ -262,7 +262,7 @@
 																		<div class="row_description">
 																			<p> <%= items.dish.wine.description  %> </p>
 																		</div>
-																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
+																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>      
 																	</div>
 															</div>
                             <% end %>
@@ -358,7 +358,7 @@
 																		<div class="row_description">
 																			<p> <%= items.dish.wine.description  %> </p>
 																		</div>
-																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>">Add to Basket</button>      
+																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>      
 																	</div>
 															</div>  
 														<% end %>	
