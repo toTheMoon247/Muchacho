@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :show]
     resources :wines, only: [:new, :create]
   end
-  resources :orders, only: :index
+  resources :orders, only: [:index, :show]
   resources :dishes, only: :show
 end

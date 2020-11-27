@@ -1,0 +1,19 @@
+<div class="container mt-5 pt-5 confirmation-banner">
+  <h1>Thank you for your Order!</h1>
+</div>
+
+<div class="container mt-5 p-5 confirmation-banner d-flex justify-content-center">
+    <div class="row">
+      <h4>You have ordered from <%= @restaurant.name %></h4>
+      <% @order.dish_orders.each do |dish_order| %>
+          <div class="card-product col-12 ">
+            <div class="product-infos">
+            <img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+            <h4> <%= dish_order.dish.name %> </h4>
+            <p>£ <%= dish_order.dish.cost / 100 %></p >
+            </div>
+          </div>
+      <% end %>
+      <h3>Basket Total : £<%= @order.total_cost_cents %></h3>
+    </div>
+</div>
