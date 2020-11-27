@@ -1,0 +1,44 @@
+<div class="row m-0">
+  <div class="left-col col-6 p-5">
+    <h4 class="text-info mt-3 pt-3">Hey Sam, let's create your new restaurant</h4>
+    <div class="form-top">
+      <p class="text-secondary mt-5">First things first: Let's start with the basics</p>
+      <h5 class="text-muted"></h5>
+      <%= simple_form_for @restaurant do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <div class="row">
+        <div class="col-6">
+         <%= f.input :category, as: :select%>
+        </div>
+        <div class="col-6">
+          <%= f.input :dietary, as: :select%>
+        </div>
+      </div>
+      <hr>
+      <p class="text-secondary">Now let's add the address and contact details</p>
+      <div class="row">
+        <div class="col-6">
+         <%= f.input :address %>
+        </div>
+        <div class="col-6">
+          <%= f.input :phone_number%>
+        </div>
+      </div>
+      <hr>
+      <p class="text-secondary">Let's connect your instagram and spotify to give your customers the best experience.</p>
+      <div class="row">
+        <div class="col-6">
+         <%= f.input :instagram_url %>
+        </div>
+        <div class="col-6">
+          <%= f.input :spotify_url%>
+        </div>
+      </div>
+      <%= f.button :submit, type: "button", class: "btn btn-secondary" %>
+    <% end %>
+    </div>
+
+  </div>
+  <div class="right-col col-6 vh-100"></div>
+</div>
