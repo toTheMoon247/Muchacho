@@ -14,6 +14,9 @@
             </div>
           </div>
       <% end %>
+        <% @order.wine_orders.each do |wine_order| %>
+          <h4> <%= wine_order.wine.name %> </h4>
+        <% end %>
       <h3>Basket Total : £<%= @order.total_cost_cents %></h3>
     </div>
 </div>
