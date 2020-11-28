@@ -1,5 +1,7 @@
 // Specific CSS for your home-page
+// TODO: Fix the navbar on the home page
 .navbar {
+  hidden: true;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,12 +10,17 @@
   z-index: 1
 }
 
-.form-inline {
-  border: 1px solid #121b2a;
-  box-shadow: 0 1px 0 0 #121b2a;
-  width: 400px;
-  margin: auto;
-  background-color: #121b2a;
-  display: flex;
-  align-items: center;
+.simple_form {
+  input::placeholder {
+    color: rgba(211,211,211, 0.5) // TODO: Opacity. It is not working.
+  }
 }
+
+// Homepage TODO:
+// Fix the opacity of the text on the search bar
+// Add box-shadow: to the button
+// Add shadow to the input text
+// change color on cllick to something more visible
+// Change transition
+// Navbar: Need to fix
+// Add button 'Explore all' next to 'Search'

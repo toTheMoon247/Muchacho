@@ -1,3 +1,22 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '212964376884978',
+      xfbml      : true,
+      version    : 'v9.0'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="row m-0">
   <div class="left-col col-6 p-5">
     <h4 class="text-info mt-3 pt-3">Hey Sam, let's create your new restaurant</h4>
