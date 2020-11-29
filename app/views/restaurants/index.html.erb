@@ -1,9 +1,7 @@
 <div class="index-container">
 <h1>Restaurants Near You</h1>
 
-!-- Sidebar -->
-<nav id="sidebar">
-   <%= simple_form_for :search, url: restaurants_path, method: :get do |f| %>
+    <%= simple_form_for :search, url: restaurants_path, method: :get do |f| %>
       <div class="sidenav">
           <p class="dropdown-btn" id="dropdown-category">Cuisine
           <i class="fa fa-caret-down"></i>
@@ -30,8 +28,6 @@
         <%= f.button :submit, "Filter Results" %>
       </div>
     <% end %>
-</nav>
-
 
 <!-- Page content -->
   <div class="main">
