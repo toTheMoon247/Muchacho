@@ -1,22 +1,94 @@
+<body style="background-color: #121b2a">
+
 <div class="container mt-5 pt-5 confirmation-banner">
-  <h1>Thank you for your Order!</h1>
+  <div class="w3-animate-fading">
+    <h1 class="glow">Thank you for your Order!</h1>
+  </div>
 </div>
 
-<div class="container mt-5 p-5 confirmation-banner d-flex justify-content-center">
+      <div class="container">
+    <div class="preparing">
+        <div class="row">
+          <h4>Your order will be with you in 30 minutes...</h4>
+        </div>
+        <div class="row">
+      <div class="loader">
+    <ul class="ul1">
+      <li class="li1"></li>
+      <li class="li1"></li>
+      <li class="li1"></li>
+    </ul>
+    <div class="wineglass left">
+      <div class="top"></div>
+    </div>
+    <div class="wineglass right">
+      <div class="top"></div>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+<a href="#nowhere" class="navicon"></a>
+<div class="toggle">
+<div class="instruction">
+  <div class="container">
     <div class="row">
-      <h4>You have ordered from <%= @restaurant.name %></h4>
-      <% @order.dish_orders.each do |dish_order| %>
-          <div class="card-product col-12 ">
+      <p class="col-12">Instructions:</p>
+        <% @order.dish_orders.each do |dish_order| %>
+          <div class="card-product col-3 h-100 d-inline-block">
+          <div class="new-color">
             <div class="product-infos">
-            <img src="https://images.unsplash.com/photo-1492683772263-5feb575cc648?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80" />
+            <%= cl_image_tag dish_order.dish.photo.key, height: 200, width: 300, crop: :fill, class:"img-thumbnail" %>
+            <h4> <%= dish_order.dish.name %> </h4>
+            <h6><%= dish_order.dish.instructions %></h6>
+            </div>
+          </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex">
+<div class="spotify">
+  <div class="container">
+    <div class="row">
+      <h2>spotify</h2>
+    </div>
+  </div>
+</div>
+<div class="basket">
+ <div class="container flex-row mx-auto">
+    <div class="row">
+      <h2>You have ordered from <%= @restaurant.name %></h2>
+      <% @order.dish_orders.each do |dish_order| %>
+          <div class="row pt-5">
+          <div class="card-product border shadow col-12">
+            <div class="product-infos">
+            <% if dish_order.dish.photo.attached?  %>
+                <%= cl_image_tag dish_order.dish.photo.key, height: 300, width: 400, crop: :fill, class:"img-thumbnail" %>
+              <% else %>
+                <img height="300" width="400" src="https://res.cloudinary.com/dzyd1ynmn/image/upload/v1605792731/no_img_available_skqx9j.png">
+                http://res.cloudinary.com/dzyd1ynmn/image/upload/c_fill,h_300,w_400/1askgpvmvupv9jbodyzmcujo6cva
+              <% end %>
+          </div>
+          <div class="row flex-column p-5">
             <h4> <%= dish_order.dish.name %> </h4>
             <p>£ <%= dish_order.dish.cost / 100 %></p >
             </div>
+          </div>
           </div>
       <% end %>
         <% @order.wine_orders.each do |wine_order| %>
           <h4> <%= wine_order.wine.name %> </h4>
         <% end %>
-      <h3>Basket Total : £<%= @order.total_cost_cents %></h3>
+      <h3 class="pt-5">Basket Total : £<%= @order.total_cost_cents %></h3>
     </div>
+ </div>
 </div>
+</div>
+</div>
+
+
+
+</body>

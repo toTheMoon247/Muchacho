@@ -32,7 +32,6 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
 import { initAutocomplete } from '../components/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
-
   // Call your functions here, e.g:
   // initSelect2();
   initUpdateNavbarOnScroll();
@@ -63,7 +62,7 @@ const initCards = () => {
     document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
     input.value = array.join(",")
    })
- })  
+ })
 };
 
 const initWines = () => {
@@ -71,14 +70,14 @@ const initWines = () => {
   cards.forEach(card => {
     card.addEventListener('click', e => {
      const input = document.querySelector("#order_wine_id")
-     
+
      const array = input.value.split(",")
      array.push(e.currentTarget.dataset.dishId)
      const name = e.currentTarget.dataset.dishName
     document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
      input.value = array.join(",")
     })
-  })  
+  })
  };
 
 
