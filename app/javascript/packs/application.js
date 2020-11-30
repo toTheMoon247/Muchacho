@@ -37,37 +37,8 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
 import { initAutocomplete } from '../components/init_autocomplete';
 import {slickCarousel} from '../components/slick_carousel';
-
-
-
-const initCards = () => {
- const cards = document.querySelectorAll("#dish_basket");
- cards.forEach(card => {
-   card.addEventListener('click', e => {
-    const input = document.querySelector("#order_dish_id")
-    const array = input.value.split(",")
-    array.push(e.currentTarget.dataset.dishId)
-    const name = e.currentTarget.dataset.dishName
-    document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
-    input.value = array.join(",")
-   })
- })
-};
-
-const initWines = () => {
-  const cards = document.querySelectorAll("#wine_basket");
-  cards.forEach(card => {
-    card.addEventListener('click', e => {
-     const input = document.querySelector("#order_wine_id")
-
-     const array = input.value.split(",")
-     array.push(e.currentTarget.dataset.dishId)
-     const name = e.currentTarget.dataset.dishName
-    document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
-     input.value = array.join(",")
-    })
-  })
- };
+import { initCards } from '../components/init_cards';
+import { initWines } from '../components/init_wines';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -88,10 +59,10 @@ for (var i = 0; i < dropdown.length; i++) {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
+  slickCarousel();
+  $('.scroller').slick();
   initCards();
   initWines();
   initAutocomplete();
-  slickCarousel();
-  $('.scroller').slick();
 });
 
