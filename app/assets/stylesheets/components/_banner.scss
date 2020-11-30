@@ -37,7 +37,7 @@
   background-color: $m-blue;
   padding-left: 10%;
   background-repeat: no-repeat;
-  height: 15vh;
+  height: 17vh;
 }
 
 .show_banner h1 {
@@ -48,8 +48,17 @@
   font-weight: bold;
 }
 
-.show_banner p {
+
+.show_banner h6 {
   font-size: 20px;
+  color: $m-platinium;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+.show_banner p {
+  font-size: 10px;
   color: $m-platinium;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);

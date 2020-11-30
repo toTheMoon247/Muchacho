@@ -25,16 +25,23 @@ require("channels")
 // External imports
 import "bootstrap";
 
+require("slick-carousel")
+
+import "slick-carousel/slick/slick.scss"
+import "slick-carousel/slick/slick-theme.scss"
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
 import { initAutocomplete } from '../components/init_autocomplete';
-document.addEventListener('turbolinks:load', () => {
+import {slickCarousel} from '../components/slick_carousel';
+import { initCards } from '../components/init_cards';
+import { initWines } from '../components/init_wines';
 
-  // Call your functions here, e.g:
-  // initSelect2();
+
+document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -48,49 +55,14 @@ for (var i = 0; i < dropdown.length; i++) {
     } else {
       dropdownContent.style.display = "block";
     }
-  });
-
-}});
-
-const initCards = () => {
- const cards = document.querySelectorAll("#dish_basket");
- cards.forEach(card => {
-   card.addEventListener('click', e => {
-    const input = document.querySelector("#order_dish_id")
-    const array = input.value.split(",")
-    array.push(e.currentTarget.dataset.dishId)
-    const name = e.currentTarget.dataset.dishName
-    document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
-    input.value = array.join(",")
-   })
- })  
-};
-
-const initWines = () => {
-  const cards = document.querySelectorAll("#wine_basket");
-  cards.forEach(card => {
-    card.addEventListener('click', e => {
-     const input = document.querySelector("#order_wine_id")
-     
-     const array = input.value.split(",")
-     array.push(e.currentTarget.dataset.dishId)
-     const name = e.currentTarget.dataset.dishName
-    document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>${name}</div>`)
-     input.value = array.join(",")
-    })
-  })  
- };
-
-
-document.addEventListener('turbolinks:load', () => {
-
+  })};
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
+  slickCarousel();
+  $('.scroller').slick();
   initCards();
   initWines();
   initAutocomplete();
-  console.log("hello");
-
 });
 

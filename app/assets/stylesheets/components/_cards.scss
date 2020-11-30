@@ -9,19 +9,20 @@
 
 .restaurant-cart{
   position: sticky;
-  top: 200px;
-  width: 70%;
+  top: 100px;
+  width: 30vw;
   height: 40vh;
   border-style: solid 2px gray;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
+  margin-left: 50px;
 }
 
 .cards{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 16px;
 }
@@ -30,10 +31,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 300px;
+  width: 15vw;
+  padding: 10px;
+  margin: 10px;
 }
 
 .card-dish > img {
-  height: 200px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
 }
@@ -112,7 +117,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-  
+
 }
 
 .card-result .card-result-infos {
@@ -122,7 +127,7 @@
 .card-result-infos {
   display: flex;
   justify-content: space-between;
- 
+
 .card-produc-infos{
   width: 100%;
 }
@@ -146,6 +151,20 @@
   .cards {
     grid-template-columns: 1fr;
   }
+}
+
+.restaurant-cards {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.alacarte_cards {
+  display: flex;
+  padding: 20px;
+}
+
+.bottom-container {
+ position: absolute;
 }
 
 
