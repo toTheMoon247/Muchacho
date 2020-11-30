@@ -19,7 +19,6 @@ class RestaurantsController < ApplicationController
       @menus = Menu.all
   end
 
-
   def show
     @restaurant = Restaurant.find(params[:id])
     @order = Order.new
@@ -31,8 +30,9 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(strong_params)
-    if @restaurant.save!
-      redirect_to restaurant_path(@restaurant.id)
+    @restaurant.user_id = current_user.id
+    if @restaurant.save
+      redirect_to restaurants_path(@restaurant.id)
     else
       render :new
     end
@@ -41,6 +41,6 @@ class RestaurantsController < ApplicationController
    private
 
   def strong_params
-    params.require(:restaurant).permit(:name, :address, :description, :dietary, :category, :photo)
+    params.require(:restaurant).permit(:name, :address, :description, :dietary, :category, :photo, :instagram_url, :spotify_url, :phone_number)
   end
 end

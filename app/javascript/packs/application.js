@@ -41,7 +41,6 @@ import { initCards } from '../components/init_cards';
 import { initWines } from '../components/init_wines';
 
 
-
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 
