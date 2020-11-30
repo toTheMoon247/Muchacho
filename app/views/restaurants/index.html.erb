@@ -39,7 +39,12 @@
                 <% if  restaurant.tasting_menu.present? %>
                 <i class="fas fa-certificate"></i>
                 <% end %>
+                <% if restaurant.photo.attached?  %>
+                  <%= cl_image_tag restaurant.photo.key, height: 150, width: 210, crop: :fill %>
+                <% else %>
                 <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
+
+                <% end %>
                 <h2> <%= restaurant.name %></h2>
                 <p class= "content"><%= restaurant.description %></p>
               </div>
