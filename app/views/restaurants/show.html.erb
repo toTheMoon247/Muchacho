@@ -127,7 +127,7 @@
 				<% @restaurant.menus.each do |menu| %>
 				<% if menu.tasting == false  %>
 					<% menu.menu_items.each do |items| %>
-						<% if items.dish.meal_category == "starter"  %>
+						<% if items.dish.meal_category == "Starter"  %>
 							<div class="card-dish" >
 							<% if items.dish.photo.attached?  %>
                 <%= cl_image_tag items.dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -178,7 +178,7 @@
 															<div class="dish_instructions">
 																	<h2><strong>Instructions:</strong></h2>
 																	<div>
-																		<p> <%= items.dish.instructions %> </p>
+																		<p> <%= items.dish.instructions.gsub(/\n/, '<br/>') %> </p>
 																	</div>
 															</div>
                               <% if items.dish.wine %>
@@ -240,7 +240,7 @@
 				<% @restaurant.menus.each do |menu| %>
 				<% if menu.tasting == false  %>
 					<% menu.menu_items.each do |items| %>
-						<% if items.dish.meal_category == "main"  %>
+						<% if items.dish.meal_category == "Main"  %>
 							<div class="card-dish" >
 							<% if items.dish.photo.attached?  %>
                 <%= cl_image_tag items.dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -354,7 +354,7 @@
 				<% @restaurant.menus.each do |menu| %>
 				<% if menu.tasting == false  %>
 					<% menu.menu_items.each do |items| %>
-						<% if items.dish.meal_category == "dessert"  %>
+						<% if items.dish.meal_category == "Dessert"  %>
 							<div class="card-dish" >
 							<% if items.dish.photo.attached?  %>
                 <%= cl_image_tag items.dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -476,6 +476,7 @@
     <%= simple_form_for [@restaurant, @order] do |f| %>
     <%= f.input :dish_id, as: :hidden %>
     <%= f.input :wine_id, as: :hidden %>
+		<%= f.input :status, :input_html => { :value => 'Being Prepared' }, as: :hidden %>
     <%= @order.dish %>
     <%= f.submit 'Order', class: 'btn btn-primary' %>
 
