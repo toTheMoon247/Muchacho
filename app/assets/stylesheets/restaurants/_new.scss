@@ -1,0 +1,21 @@
+body {
+  background-color: white;
+}
+
+.right-col {
+  background-image: asset_url('assets/lunch.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.simple_form {
+  textarea::placeholder, input::placeholder {
+    color: #D3D3D3;
+  }
+}
+
+#new_restaurant {
+  label {
+    text-align: left;
+  }
+}
