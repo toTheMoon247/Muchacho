@@ -25,31 +25,20 @@ require("channels")
 // External imports
 import "bootstrap";
 
+require("slick-carousel")
+
+import "slick-carousel/slick/slick.scss"
+import "slick-carousel/slick/slick-theme.scss"
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
 import { initAutocomplete } from '../components/init_autocomplete';
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  initUpdateNavbarOnScroll();
+import {slickCarousel} from '../components/slick_carousel';
 
-var dropdown = document.getElementsByClassName("dropdown-btn");
 
-for (var i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-
-}});
 
 const initCards = () => {
  const cards = document.querySelectorAll("#dish_basket");
@@ -82,14 +71,27 @@ const initWines = () => {
 
 
 document.addEventListener('turbolinks:load', () => {
+  initUpdateNavbarOnScroll();
 
+var dropdown = document.getElementsByClassName("dropdown-btn");
+
+for (var i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  })};
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
   initCards();
   initWines();
   initAutocomplete();
-  console.log("hello");
-
+  slickCarousel();
+  $('.scroller').slick();
 });
 
