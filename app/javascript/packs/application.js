@@ -39,6 +39,7 @@ import { initAutocomplete } from '../components/init_autocomplete';
 import {slickCarousel} from '../components/slick_carousel';
 
 
+
 const initCards = () => {
  const cards = document.querySelectorAll("#dish_basket");
  cards.forEach(card => {
