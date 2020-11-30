@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # get 'orders/create'
   devise_for :users
   root to: 'pages#home'
+  get 'pages/ios'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :restaurants, only: [:index, :show, :new, :create] do
@@ -11,7 +12,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :show]
     
   end
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show] do 
+    post :is_ready, on: :member
+    post :is_being_delivered, on: :member
+  end
+
   resources :dishes, only: :show do 
     resources :wines, only: [:new, :create]
   end

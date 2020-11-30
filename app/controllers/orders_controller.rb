@@ -38,11 +38,21 @@ class OrdersController < ApplicationController
 
   end
 
+  def is_ready
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "ready")
+    redirect_to orders_path
+  end
 
+  def is_being_delivered
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "being delivered")
+    redirect_to orders_path
+  end
 
   private
   def strong_params
-    params.require(:order).permit(:dish_id, :wine_id)
+    params.require(:order).permit(:dish_id, :wine_id, :status)
   end
 
 end
