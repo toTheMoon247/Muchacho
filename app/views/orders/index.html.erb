@@ -5,14 +5,13 @@
 
 <h2><strong>Orders at your restaurants</strong></h2>
 <% Restaurant.where("user_id = #{current_user.id}").each do |r|  %>
-  <h4><strong><%= r.name %></strong></h4>
-    <% r.orders.each do |order| %>
+  <h4 class="px-2"><strong><%= r.name %></strong></h4>
+    <% r.orders.order("created_at DESC").each do |order| %>
       <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result">
       <%= cl_image_tag r.photo.key, height: 150, width: 210, crop: :fill %>
 
       <div class="product-text">
-        <div><h2><%= order.created_at.strftime('%A %d %B at %I:%M%p') %> - <%= order.restaurant.name %></h2></div>
-        <%= link_to "Checkout with this Order!", order_path(order), class: 'btn btn-primary' %>
+        <div><h2><%= order.created_at.strftime('%A %d %B at %I:%M%p') %></h2></div>
         <% dishes = [] %>
         <% order.dish_orders.each do |dish_order| %>
 
@@ -50,8 +49,22 @@
 
 
           <div> Total: £<%= order.total_cost_cents %></div>
+
+
       </div>
+      <div class="d-flex flex-column w-50">
+        <div>
+          <p>The order is: <strong><%= order.status.nil? ? "being prepared" : order.status  %></strong>.</p>
+        </div>
+        <div>
+          <%= button_to "Out!", is_being_delivered_order_path(order), class: "btn btn-primary p-1 m-1 w-75" %>
+        </div>
+        <div>
+          <%= button_to "Ready!", is_ready_order_path(order), class: "btn btn-primary p-1 m-1 w-75" %>
+        </div>
       </div>
+
+    </div>
 
     <% end %>
 <% end %>
@@ -59,7 +72,7 @@
 <h2 class="my-3"><strong>Orders you've made</strong></h2>
 
 
- <% @orders.each do |order| %>
+ <% @orders.order("created_at DESC").each do |order| %>
 
  <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result">
   <%= cl_image_tag order.restaurant.photo.key, height: 150, width: 210, crop: :fill %>
@@ -99,6 +112,7 @@
 
       <% ba.each do |k,v| %>
       <div> <%= "#{v} x #{k} - £#{ca["#{k}_price"] / 100}"  %> </div>
+
       <% end %>
 
 
