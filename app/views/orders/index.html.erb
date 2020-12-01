@@ -50,7 +50,7 @@
 
           <div> Total: £<%= order.total_cost_cents %></div>
 
-          
+
       </div>
       <div class="d-flex flex-column w-50">
         <div>
@@ -63,7 +63,9 @@
           <%= button_to "Ready!", is_ready_order_path(order), class: "btn btn-primary p-1 m-1 w-75" %>
         </div>
       </div>
+
     </div>
+
     <% end %>
 <% end %>
 
@@ -110,7 +112,7 @@
 
       <% ba.each do |k,v| %>
       <div> <%= "#{v} x #{k} - £#{ca["#{k}_price"] / 100}"  %> </div>
-      
+
       <% end %>
 
 
