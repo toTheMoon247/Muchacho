@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
           @wine_order.save!
         end
           @order.calculate_costs
-        redirect_to orders_path
+        redirect_to :root
       else
           render "restaurant/show"
       end
