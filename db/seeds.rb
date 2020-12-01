@@ -35,7 +35,7 @@ balthazar = Restaurant.new(name: "Balthazar", description: "French brasserie-sty
 balthazar.save!
 sexyfish = Restaurant.new(name: "Sexy Fish", description: "Asain restaurant serving Japanese-inspired sushi", category: "Japanese", address: "Berkeley Square House, Berkeley Square, W1J 6BR")
 sexyfish.save!
-scott = Restaurant.new(name: "Scott", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Back Church Lane, London EX1 1LX", average_rating: 4.99)
+scott = Restaurant.new(name: "Scott", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Back Church Lane, London EX1 1LX", average_rating: 4.99, dietary: "Vegan")
 scott.save!
 
 jsheeky = Restaurant.new(name: "J Sheeky", description: "Iconic London Fish Restaurant", category: "British", address: "28-32 St Martin's Court London WC2N 4AL")

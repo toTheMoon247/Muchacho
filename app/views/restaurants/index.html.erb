@@ -28,7 +28,7 @@
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input check_boxes required" type="checkbox" value="5" name="search[average_rating][]" id="search_average_rating_5">
+          <input class="form-input check_boxes required" type="checkbox" value="5" name="s-checkearch[average_rating][]" id="search_average_rating_5">
           <label class="form-check-label collection_check_boxes" for="search_average_rating_5">
             <div>
               <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></a>
@@ -55,18 +55,25 @@
 
               <div class="restaurant-card-dietary_and_price">
                 <div class="d-flex property">
+                <% if restaurant.dietary %>
                   <p><small><%= restaurant.dietary %></small></p>
                   <i class="fas fa-leaf"></i>
+                <% else %>
+                  <p><small></small></p>
+                  </br>
+                <% end %>
                 </div>
-                <div class="d-flex property">
+                <!-- <div class="d-flex property">
                   <p><small>High end</small></p>
                   <p><small>£££</small></p>
-                </div>
+                </div> -->
               </div>
 
               <div class="restaurant-card-rating d-flex">
                 <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <% restaurant.average_rating.to_i.times do  %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
                 </div>
                 <h7><b>Excellent</b></h7>
               </div>

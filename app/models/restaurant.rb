@@ -19,4 +19,5 @@ class Restaurant < ApplicationRecord
     def tasting_menu
       menus.where(tasting: true).first
     end
+
 end
