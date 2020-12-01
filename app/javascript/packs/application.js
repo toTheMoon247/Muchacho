@@ -39,6 +39,7 @@ import { initAutocomplete } from '../components/init_autocomplete';
 import {slickCarousel} from '../components/slick_carousel';
 import { initCards } from '../components/init_cards';
 import { initWines } from '../components/init_wines';
+import { initTasting } from '../components/init_tasting';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -64,5 +65,6 @@ for (var i = 0; i < dropdown.length; i++) {
   initCards();
   initWines();
   initAutocomplete();
+  initTasting();
 });
 
