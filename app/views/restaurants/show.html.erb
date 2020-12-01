@@ -114,30 +114,6 @@
 																		<p> <%= items.dish.instructions.gsub(/\n/, '<br/>') %> </p>
 																	</div>
 															</div>
-                              <% if items.dish.wine %>
-															<div class="wine_title">
-															<h2><strong>Perfect Pairing:</strong></h2>
-																<%= link_to "Add wine",  new_dish_wine_path(items.dish.id) if current_user.admin?  %>
-															</div>
-															<div class="card-product">
-															<% if items.dish.wine.photo.attached?  %>
-                                <%= cl_image_tag items.dish.wine.photo.key, height: 300, width: 400, crop: :fill %>
-                              <% else %>
-                                <img height="300" width="400" src="https://res.cloudinary.com/dzyd1ynmn/image/upload/v1605792731/no_img_available_skqx9j.png">
-                                http://res.cloudinary.com/dzyd1ynmn/image/upload/c_fill,h_300,w_400/1askgpvmvupv9jbodyzmcujo6cva
-                              <% end %>
-																	<div class="product-infos">
-																		<div class="title_price">
-																				<h2><%= items.dish.wine.name %></h2>
-																				<h2>£
-																				<%= items.dish.wine.cost / 100 %></h2>
-																		</div>
-																		<div class="row_description">
-																			<p> <%= items.dish.wine.description  %> </p>
-																		</div>
-																		<button type="button" class="btn btn-primary py-2" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>">Add to Basket</button>
-																	</div>
-															</div>
                                 <% if items.dish.wine %>
     															<div class="wine_title">
     															<h2><strong>Perfect Pairing:</strong></h2>
@@ -412,12 +388,12 @@
 			</div>
     </div>
 
-  <div class="new-dish p-5">
-    <% if current_user.admin? %>
-    <%= link_to 'Add a New Dish to Your Menu!', new_restaurant_dish_path(@restaurant), class: 'btn btn-primary' %>
-    <% end %>
+    <div class="new-dish p-5">
+      <% if current_user.admin? %>
+      <%= link_to 'Add a New Dish to Your Menu!', new_restaurant_dish_path(@restaurant), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-</div>
 
 	<div class="col-3 restaurant-cart basket-info">
     <h2>Basket</h2>
@@ -431,5 +407,4 @@
     <% end %>
   </div>
 </div>
-
 
