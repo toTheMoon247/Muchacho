@@ -10,14 +10,15 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show, :new, :create] do
     resources :dishes, only:[:create, :new]
     resources :orders, only: [:new, :create, :show]
-    
+    resources :reviews, only: [ :new, :create ]
+
   end
-  resources :orders, only: [:index, :show] do 
+  resources :orders, only: [:index, :show] do
     post :is_ready, on: :member
     post :is_being_delivered, on: :member
   end
 
-  resources :dishes, only: :show do 
+  resources :dishes, only: :show do
     resources :wines, only: [:new, :create]
   end
 end
