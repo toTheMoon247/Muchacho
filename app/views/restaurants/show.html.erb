@@ -398,7 +398,7 @@
 						<% end %>
 					<% end %>
 				<% end %>
-			
+
 			</div>
     </div>
 
@@ -420,5 +420,18 @@
     <%# <%= link_to "View Basket", dashboard_path, class: 'btn btn-checkout' %>
     <% end %>
   </div>
+</div>
+<div class="container">
+  <h4 class="m-3">Reviews</h4>
+    <div>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item">User: <%= review.name %>
+            <p class="pt-2">Review: <%=review.content %> </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary py-2 m-3' %>
 </div>
 
