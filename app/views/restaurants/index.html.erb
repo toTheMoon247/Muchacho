@@ -12,7 +12,7 @@
         <legend class="col-form-label pt-0">Average rating <abbr title="required">*</abbr></legend>
         <input type="hidden" name="search[average_rating][]" value="">
         <div class="form-check">
-          <input class="form-check-input check_boxes required" type="checkbox" value="" name="search[average_rating][]" id="search_average_rating_3">
+          <input class="form-check-input check_boxes required" type="checkbox" value="3" name="search[average_rating][]" id="search_average_rating_3">
           <label class="form-check-label collection_check_boxes" for="search_average_rating_3">
             <div>
               <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
@@ -41,63 +41,39 @@
     <% end %>
   </div>
 
-  <div>
-    <!-- Cards elements here -->
-    <div class="row m-0">
-      <!-- Iterate over the cards -->
-      <div class="col-4">
-        <div class="restaurant-card">
-          <%= image_tag "dish.jpg" %>
-          <div class="restaurant-card-container">
-             <div class="restaurant-card-title_and_flag d-flex justify-content-between">
-              <h4><b> <%= @restaurants.first.name %> </b></h4>
-            </div>
 
-            <div class="restaurant-card-dietary_and_price">
-              <div class="d-flex property">
-                <p><small>Vegan</small></p>
-                <i class="fas fa-leaf"></i>
-              </div>
-              <div class="d-flex property">
-                <p><small>High end</small></p>
-                <p><small>£££</small></p>
-              </div>
-            </div>
-
-            <div class="restaurant-card-rating d-flex">
-              <div>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-              <h7><b>Excellent</b></h7>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="cards">
       <% @restaurants.each do |restaurant| %>
-        <div class="col-4 m-3 p-3">
-          <div class="restaurant-card border border-primary">
+        <div class="m-3 p-3">
+          <div class="restaurant-card">
+            <%= image_tag "dish.jpg" %>
+            <div class="restaurant-card-container">
+               <div class="restaurant-card-title_and_flag d-flex justify-content-between">
+                <h4><b> <%= restaurant.name %> </b></h4>
+              </div>
 
-            <div class="restaurant-card-photo border border-success">
-                <!-- <img src="https://source.unsplash.com/N_Y88TWmGwA" /> -->
+
+              <div class="restaurant-card-dietary_and_price">
+                <div class="d-flex property">
+                  <p><small><%= restaurant.dietary %></small></p>
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="d-flex property">
+                  <p><small>High end</small></p>
+                  <p><small>£££</small></p>
+                </div>
+              </div>
+
+              <div class="restaurant-card-rating d-flex">
+                <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h7><b>Excellent</b></h7>
+              </div>
             </div>
-
-            <div class="restaurant-card-title_and_flag border border-info">
-              <p> <%= restaurant.name %></p>
-            </div>
-
-            <div class="restaurant-card-dietary_and_price border border-warning">
-              <p> vegan </p>
-              <p> High End </p>
-            </div>
-
-            <div class="restaurant-card-rating">
-              <h3>5 stars</h3>
-            </div>
-
           </div>
         </div>
-      <% end %>
+       <% end %>
     </div>
-  </div>
 
 </div>
