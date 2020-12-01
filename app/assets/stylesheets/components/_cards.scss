@@ -3,16 +3,25 @@
   display: flex;
   position: relative;
   margin-top: 16px;
+  grid-template-columns: 3fr 1fr ;
+  grid-gap: 16px;
 }
 
 .restaurant-cart{
   position: sticky;
-  top: 0;
+  top: 200px;
+  width: 70%;
+  height: 40vh;
+  border-style: solid 2px gray;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px;
 }
 
 .cards{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 16px;
 }
@@ -55,6 +64,76 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-result {
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border: 6px, dotted, black;
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+  padding-right: 2vh;
+}
+
+// .card-result:hover {
+//   padding: 3px;
+//   cursor: pointer;
+// }
+
+
+.card-result img {
+  height: 100%;
+  width: 30vh;
+  object-fit: cover;
+  margin: 2vh;
+
+}
+
+.card-result h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-result a {
+  text-decoration: none;
+}
+
+.a{
+  text-decoration: none;
+}
+
+.card-result p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  
+}
+
+.card-result .card-result-infos {
+  padding: 0px;
+}
+
+.card-result-infos {
+  display: flex;
+  justify-content: space-between;
+ 
+.card-produc-infos{
+  width: 100%;
+}
+}
+.product-text {
+  width: 100%;
+  height: 80%;
+}
+
+.product-text p {
+  padding-left: 16px;
 }
 
 @media(max-width: 992px) {
