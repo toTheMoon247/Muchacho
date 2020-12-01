@@ -12,12 +12,30 @@ class Restaurant < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-    def alacarte_menu
-      menus.where(tasting: false).first
-    end
 
-    def tasting_menu
-      menus.where(tasting: true).first
-    end
+    RATING = ["good", "very good"]
+    ICONS = []
+
+  def alacarte_menu
+    menus.where(tasting: false).first
+  end
+
+  def tasting_menu
+    menus.where(tasting: true).first
+  end
+
+
+
+  def rating_in_words
+    return "Excellent"
+  end
+
+  def dietary_icon
+    return "Icon"
+  end
+
+  def category_flag
+    return "French Flag"
+  end
 
 end

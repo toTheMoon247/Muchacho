@@ -1,27 +1,21 @@
 class RestaurantsController < ApplicationController
 
   def index
-    # Do the correct query
     @restaurants = Restaurant.all
+    if params[:search].present?
+      categories = params[:search][:categories].reject(&:blank?)
+      dietary = params[:search][:dietary].reject(&:blank?)
+      minimum_rating = params[:search][:average_rating].reject(&:blank?).first&.to_i # Either nil either an integer
+      @restaurants = @restaurants.where(category: categories) unless categories.empty?
+      @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
+      @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
+    end
 
-
-    # @restaurants = @restaurants.near(params.dig(:search, :query), 6) if params.dig(:search, :query).present?
-    # if params.dig(:search, :categories)&.any? || params.dig(:search, :dietary)&.any?
-    #   # categories = params[:search][:categories][1..-1]
-    #   # @category_instances =  categories.map do |category|
-    #   #  Restaurant.where(category: category)
-    #   # end.flatten
-    #   # dietary = params[:search][:dietary][1..-1]
-    #   # @dietary_instances =  dietary.map do |diet|
-    #   #  Restaurant.where(dietary: diet)
-    #   # end.flatten
-    #   # @restaurants = (@category_instances + @dietary_instances).uniq
-    # end
-    #   @restaurants = @restaurants.where(category: params.dig(:search, :categories).reject(&:blank?)) if params.dig(:search, :categories)&.reject(&:blank?)&.any?
-    #   @restaurants = @restaurants.where(dietary: params.dig(:search, :dietary).reject(&:blank?)) if params.dig(:search, :dietary)&.reject(&:blank?)&.any?
-    #   @restaurant = @restaurants.where(average_rating: params.dig(:search, :average_rating).reject(&:blank?)) if params.dig(:search, :average_rating)&.reject(&:blank?)&.any?
-      @menus = Menu.all
   end
+
+
+  # TODO: Tick the right boxes according to the params when the page is loading
+  # Clear all filters
 
   def show
     @restaurant = Restaurant.find(params[:id])
