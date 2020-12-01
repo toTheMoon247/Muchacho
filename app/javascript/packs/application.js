@@ -42,6 +42,7 @@ import { initWines } from '../components/init_wines';
 import { initTasting } from '../components/init_tasting';
 
 
+
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 
@@ -66,5 +67,6 @@ for (var i = 0; i < dropdown.length; i++) {
   initWines();
   initAutocomplete();
   initTasting();
+  initProgress();
 });
 
