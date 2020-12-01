@@ -12,7 +12,7 @@
         <legend class="col-form-label pt-0">Average rating <abbr title="required">*</abbr></legend>
         <input type="hidden" name="search[average_rating][]" value="">
         <div class="form-check">
-          <input class="form-check-input check_boxes required" type="checkbox" value="" name="search[average_rating][]" id="search_average_rating_3">
+          <input class="form-check-input check_boxes required" type="checkbox" value="3" name="search[average_rating][]" id="search_average_rating_3">
           <label class="form-check-label collection_check_boxes" for="search_average_rating_3">
             <div>
               <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
@@ -41,9 +41,10 @@
     <% end %>
   </div>
 
-    <div>
+
+    <div class="cards">
       <% @restaurants.each do |restaurant| %>
-        <div class="col-4 m-3 p-3">
+        <div class="m-3 p-3">
           <div class="restaurant-card">
             <%= image_tag "dish.jpg" %>
             <div class="restaurant-card-container">
@@ -54,7 +55,7 @@
 
               <div class="restaurant-card-dietary_and_price">
                 <div class="d-flex property">
-                  <p><small>Vegan</small></p>
+                  <p><small><%= restaurant.dietary %></small></p>
                   <i class="fas fa-leaf"></i>
                 </div>
                 <div class="d-flex property">
@@ -71,8 +72,8 @@
               </div>
             </div>
           </div>
-          <% end %>
         </div>
+       <% end %>
     </div>
 
 </div>
