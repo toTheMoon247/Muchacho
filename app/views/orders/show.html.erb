@@ -114,9 +114,17 @@
               <%= cl_image_tag dish_order.dish.photo.key, height: 200, width: 300, crop: :fill, class:"img-thumbnail" %>
               <div class="product-text"> 
                 <h5> <%= dish_order.dish.name %> </h5>
-                <p><%= dish_order.dish.instructions %></p>
-            </div>
+                <p><%= dish_order.dish.preparation %></p>
+              </div>
 
+                <div class="d-flex flex-column w-50">
+                <div>
+                  <h5> <%= "NEW FEATURE" if dish_order.dish.threed_model.nil? ==false %> </h5>
+                </div>
+                <div>
+                  <%= link_to "Plate it in AR", dish_order.dish.threed_model, class:"btn btn-primary" if dish_order.dish.threed_model.nil? ==false %>
+                </div>
+              </div>
             </div>
         <% end %>
       </div>

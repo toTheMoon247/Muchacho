@@ -33,7 +33,7 @@
                     <button type="button" class="btn-dish link_to_modal" data-toggle="modal" data-target="#exampleModal_<%= items.dish.id %>">
                     </button>
 
-                    <p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+                    <p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
                     <p><%#= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
                   </div>
                   <!-- <h2 class="card-trip-pricing btn-price">£<%= items.dish.cost / 100  %></h2> -->
@@ -68,7 +68,7 @@
         <% if menu.tasting == true  %>
           <% menu.menu_items.each do |items| %>
             <ul>
-              <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>"><i class="fas fa-wine-glass-alt"></i></button><%#= items.dish.meal_category %> <%= items.dish.wine.name if items.dish.wine.nil? == false%></li>
+              <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id if items.dish.wine.nil? == false%>" data-dish-name="<%= items.dish.wine.name if items.dish.wine.nil? == false%>"><i class="fas fa-wine-glass-alt"></i></button> <%= items.dish.wine.name if items.dish.wine.nil? == false%></li>
             </ul>
           <% end %>
         <% end %>
@@ -136,7 +136,7 @@
 															<div class="dish_instructions">
 																	<h2><strong>Instructions:</strong></h2>
 																	<div>
-																		<p> <%= items.dish.instructions.gsub(/\n/, '<br/>') %> </p>
+																		<p> <%= items.dish.preparation %> </p>
 																	</div>
 															</div>
                                 <% if items.dish.wine %>
@@ -173,7 +173,7 @@
 											</div>
 										</div>
 
-											<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+											<p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
 											<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
 
 
@@ -246,7 +246,7 @@
 															<div class="dish_instructions">
 																	<h2><strong>Instructions:</strong></h2>
 																	<div>
-																		<p> <%= items.dish.instructions %> </p>
+																		<p> <%= items.dish.preparation %> </p>
 																	</div>
 															</div>
                                <% if items.dish.wine %>
@@ -284,7 +284,7 @@
 											</div>
 										</div>
 
-											<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+											<p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
 											<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
 
 									</div>
@@ -358,7 +358,7 @@
 															<div class="dish_instructions">
 																	<h2><strong>Instructions:</strong></h2>
 																	<div>
-																		<p> <%= items.dish.instructions %> </p>
+																		<p> <%= items.dish.preparation %> </p>
 																	</div>
 															</div>
                                <% if items.dish.wine %>
@@ -394,7 +394,7 @@
 												</div>
 											</div>
 										</div>
-											<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
+											<p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
 											<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
 									</div>
 									<h5 class="card-trip-pricing btn-white">£<%= items.dish.cost / 100  %></h5>

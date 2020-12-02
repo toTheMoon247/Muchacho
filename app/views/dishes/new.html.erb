@@ -24,7 +24,10 @@
             <%= f.input :prep_time,  placeholder: 'Prep time in minutes' %>
           </div>
           <div class="p-0">
-            <%= f.input :instructions, :wrapper_html => {:style=> 'padding: 0'} %>
+            <%= f.rich_text_area :preparation, :wrapper_html => {:style=> 'padding: 0'} %>
+          </div>
+          <div class="p-0">
+            <%= f.input :threed_model, label: "3D Model" ,placeholder: 'Wow your clients with plating AR' %>
           </div>
             <%= f.submit 'Create Dish', class: 'btn btn-primary' %>
         <% end %>
