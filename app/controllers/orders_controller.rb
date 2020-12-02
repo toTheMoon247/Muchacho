@@ -25,8 +25,10 @@ class OrdersController < ApplicationController
           @wine_order = WineOrder.new(wine_id: wine.to_i, order: @order)
           @wine_order.save!
         end
+
           @order.calculate_costs
-        redirect_to orders_path
+        redirect_to order_path(@order)
+
       else
           render "restaurant/show"
       end
@@ -35,14 +37,23 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @restaurant = @order.restaurant
-
   end
 
+  def is_ready
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "ready")
+    redirect_to orders_path
+  end
 
+  def is_being_delivered
+    @order = Order.find(params[:id])
+    @order.update_attributes(status: "being delivered")
+    redirect_to orders_path
+  end
 
   private
   def strong_params
-    params.require(:order).permit(:dish_id, :wine_id)
+    params.require(:order).permit(:dish_id, :wine_id, :status)
   end
 
 end

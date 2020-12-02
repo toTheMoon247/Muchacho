@@ -1,0 +1,5 @@
+meta_product_name: "Product Name"
+meta_title: "Product name - Product tagline"
+meta_description: "Relevant description"
+meta_image: "lunch.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@Muchach02995426"   # required for Twitter Cards

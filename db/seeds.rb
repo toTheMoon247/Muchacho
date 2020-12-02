@@ -12,7 +12,7 @@
 the_alchemist = Restaurant.create!(name: "The Alchemist", description: "Innovative Food!", category: "American", address: "6 Bevis Marks, Aldgate, London")
 texture = Restaurant.create!(name: "Texture", description: "With its light Euro-Scandinavian menu and Nordic flare for design, Marylebone's Michelin-starred Texture is a firm favourite amongst stars. Look out for Victoria Beckham at the champagne bar or sauntering towards the private dining area!", category: "British", address: "34 Portman St, Marylebone, London W1H 7BY")
 the_swan = Restaurant.create!(name: "The Swan", description: "With dazzling river views (in which a proud St Paul's takes centre stage) an upscale, cosy interior and locally sourced dishes dreamt up by Allan Pickett, The Swan at The Globe is a firm favourite amongst big-wig theatre-lovers.", dietary: "veagan", category: "British", address: "30-31 Clerkenwell Green, Farringdon, London EC1R 0DU")
-scott = Restaurant.create!(name: "Scott's Restaurant", description: "The sophisticated Scott's, with its glamorous clientele and spectacular seafood bar, started life as an oyster warehouse back in 1851. Now, it plays home away from home to the likes of Nigella Lawson, Kate Moss, David Walliams, Rod Stewart, Stephen Stielberg... Oh, the stories those tables could tell.", category: "British", address: "9 Kensington Square, Kensington, London W8 5EP")
+scott = Restaurant.create!(name: "Scott's Restaurant", description: "The sophisticated Scott's, with its glamorous clientele and spectacular seafood bar, started life as an oyster warehouse back in 1851. Now, it plays home away from home to the likes of Nigella Lawson, Kate Moss, David Walliams, Rod Stewart, Stephen Stielberg... Oh, the stories those tables could tell.", category: "British", address: "9 Kensington Square, Kensington, London W8 5EP", spotify_url: "7hd5XLacuyCRIODSvDjfcG")
 
 puts "Dropping old tables"
 
@@ -42,7 +42,7 @@ jsheeky = Restaurant.new(name: "J Sheeky", description: "Iconic London Fish Rest
 jsheeky.save!
 
 puts "Creating a user"
-jack = User.create!(email:"muchacho@gmail.com", password:"password")
+jack = User.create!(email:"muchacho@gmail.com", password:"password", admin: true)
 
 wagamama = Restaurant.create!(name: "Wagamama", description: "High quality food!", dietary: "Gluten free", category: "Japanese", address: "17 Bedford St, Covent Garden, London")
 the_alchemist = Restaurant.create!(name: "The Alchemist", description: "Innovative Food!", category: "American", address: "6 Bevis Marks, Aldgate, London")

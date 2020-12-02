@@ -7,12 +7,21 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "slick";
+@import "slick-theme";
+@import "actiontext";
 
 // Your CSS partials
 @import "components/index";
 @import "components/cards";
 @import "components/dish_cards";
 @import "components/background_video";
+@import "components/error_pages";
+@import "components/progress";
 @import "pages/index";
+@import "pages/show";
 @import "restaurants/index";
+// @import "components/sub-navbar";
+
 @import url('https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css');
+@import 'mapbox-gl/dist/mapbox-gl';
