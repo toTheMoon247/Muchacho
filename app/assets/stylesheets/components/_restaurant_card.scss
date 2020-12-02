@@ -10,12 +10,14 @@
   }
   .fa-star {
     color: #f2a339;
+    text-shadow: 0 0 1px grey;
+
   }
 }
 
 .restaurant-card:hover {
   cursor: pointer;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.6);
 }
 
 .restaurant-card img {

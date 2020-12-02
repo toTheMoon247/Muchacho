@@ -42,7 +42,7 @@ class Restaurant < ApplicationRecord
     if self.dietary.present?
       icon = ICONS[self.dietary]
       if icon.nil?
-        return "<div class='empty'></div>"
+        return '<i class="far fa-empty-set"></i>'
       else
         return icon
       end

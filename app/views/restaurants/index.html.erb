@@ -42,7 +42,7 @@
   </div>
 
 
-    <div class="cards">
+    <div class="index-grid">
       <% @restaurants.each do |restaurant| %>
         <div class="m-3 p-3">
           <div class="restaurant-card">
@@ -66,17 +66,19 @@
                   <p><small><%= restaurant.dietary_icon.html_safe %></small></p>
                   <!-- <i class="fas fa-leaf"></i> -->
                 <% else %>
-                  <p><small></small></p>
-                  </br>
+                 <p><small class="empty">Empty</small></p>
+                 <p><small class="em"><i class="far fa-empty-set"></i></small></p>
                 <% end %>
                 </div>
-                <!-- <div class="d-flex property">
-                  <p><small>restaurant.category</small></p> -->
+
+                <div class="d-flex property">
+                  <p><small><%= restaurant.category %></small></p>
                   <!-- <p><small>£££</small></p> -->
-                <!-- </div> -->
+                </div>
               </div>
 
-              <div class="restaurant-card-rating d-flex">
+              <div class="restaurant-card-rating d-flex justify-content-between">
+
                 <div>
                   <% restaurant.average_rating.to_i.times do  %>
                     <i class="fas fa-star"></i>
