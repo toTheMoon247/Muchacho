@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.where(category: categories) unless categories.empty?
     @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
     @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
+    @menus = Menu.all
 
   end
 
