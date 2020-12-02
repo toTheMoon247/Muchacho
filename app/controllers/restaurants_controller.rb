@@ -2,23 +2,30 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @restaurants = @restaurants.near(params.dig(:search, :query), 6) if params.dig(:search, :query).present?
-    if params.dig(:search, :categories)&.any? || params.dig(:search, :dietary)&.any?
-      # categories = params[:search][:categories][1..-1]
-      # @category_instances =  categories.map do |category|
-      #  Restaurant.where(category: category)
-      # end.flatten
-      # dietary = params[:search][:dietary][1..-1]
-      # @dietary_instances =  dietary.map do |diet|
-      #  Restaurant.where(dietary: diet)
-      # end.flatten
-      # @restaurants = (@category_instances + @dietary_instances).uniq
-    end
-      @restaurants = @restaurants.where(category: params.dig(:search, :categories).reject(&:blank?)) if params.dig(:search, :categories)&.reject(&:blank?)&.any?
-      @restaurants = @restaurants.where(dietary: params.dig(:search, :dietary).reject(&:blank?)) if params.dig(:search, :dietary)&.reject(&:blank?)&.any?
-      @restaurant = @restaurants.where(average_rating: params.dig(:search, :average_rating).reject(&:blank?)) if params.dig(:search, :average_rating)&.reject(&:blank?)&.any?
-      @menus = Menu.all
+    @restaurants = Restaurant.near(params.dig(:search, :query), 6) if params.dig(:search, :query).present?
+    # Fetch query params
+    query = params.dig(:search, :query) || ""
+    # Fetch Filters params
+    categories = params.dig(:search, :categories)&.reject(&:blank?) || []
+    dietary = params.dig(:search, :dietary)&.reject(&:blank?) || []
+    minimum_rating = params.dig(:search, :average_rating)&.reject(&:blank?)&.first&.to_i # Either nil either an integer
+    #If its blank do a
+    # if  filters & query do a
+    # If query exists do b
+    # if filters do d
+
+    # Get restaurant by a name
+    # @restaurants = @restaurants.where("name ILIKE ?", query) unless query.empty?
+    @restaurants = @restaurants.where(category: categories) unless categories.empty?
+    @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
+    @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
+    @menus = Menu.all
+
   end
+
+
+  # TODO: Tick the right boxes according to the params when the page is loading
+  # Clear all filters
 
   def show
     @restaurant = Restaurant.find(params[:id])
