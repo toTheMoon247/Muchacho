@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @restaurants = Restaurant.near(params.dig(:search, :query), 6) if params.dig(:search, :query).present?
     # Fetch query params
     query = params.dig(:search, :query) || ""
     # Fetch Filters params
@@ -12,7 +13,9 @@ class RestaurantsController < ApplicationController
     # if  filters & query do a
     # If query exists do b
     # if filters do d
-    @restaurants = @restaurants.where("name ILIKE ?", query) unless query.empty?
+
+    # Get restaurant by a name
+    # @restaurants = @restaurants.where("name ILIKE ?", query) unless query.empty?
     @restaurants = @restaurants.where(category: categories) unless categories.empty?
     @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
     @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
