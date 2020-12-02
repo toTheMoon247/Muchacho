@@ -1,11 +1,10 @@
 <div class="show_banner">
 </div>
-<div class="row show_banner mb-5 justify-content-bewteen">
+<div class="row show_banner mb-5 mb-5 justify-content-bewteen">
   <div class="col-8 restaurant-info" style="left: 35px;">
     <h1><%= @restaurant.name %> <i class="fas fa-utensils"></i></h1>
     <h6 style="max-width: 720px;"><%= @restaurant.description %></h6>
-    <p><%= @restaurant.category %></p>
-    <p><%= @restaurant.dietary %></p>
+    <p><%= @restaurant.category %> <i class="fas fa-grip-lines-vertical"></i> <%= @restaurant.dietary %></p>
   </div>
   <div class="col-4" style="margin-left: -100px;">
     <iframe src="https://open.spotify.com/embed/playlist/7hd5XLacuyCRIODSvDjfcG" width="450" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -38,9 +37,12 @@
                   </div>
                   <!-- <h2 class="card-trip-pricing btn-price">£<%= items.dish.cost / 100  %></h2> -->
                 </div>
-                <h2 class="meal_category"> <%= items.dish.meal_category %></h2>
+                <h2 class="meal_category"> <%= items.dish.meal_category %> <i class="fas fa-grip-lines-vertical"></i> <%= items.dish.name %></h2>
+                <h2 class="meal_category_name"> </h2>
                 <% if items.dish.wine.present? && items.dish.wine.photo.attached? %>
-                <p class="wine_carousel_desrciption"> <%= items.dish.wine.description %> </p>
+                <div class="wine_carousel_description">
+                <p> <%= items.dish.wine.description %> </p>
+                </div>
                 <% end %>
               </div>
             <% end %>
@@ -73,7 +75,7 @@
             <% menu.menu_items.each do |items| %>
               <ul>
                 <% if items.dish.wine.present? %>
-                <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>"><i class="fas fa-wine-glass-alt"></i></button><%#= items.dish.meal_category %> <%= items.dish.wine.name if items.dish.wine.nil? == false%></li>
+                <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>"><i class="fas fa-wine-glass-alt"> </i><%= items.dish.wine.name if items.dish.wine.nil? == false%></button></li>
                 <% else %>
                 <li></li>
                 <% end %>
@@ -89,7 +91,7 @@
 <div class="bottom-container">
   <div class="alacarte col-8">
 
-    <div class="new-dish justify-content-bewteen">
+    <div class="new-dish justify-content-bewteen m-4">
       <% if current_user.admin? %>
       <%= link_to 'Add a New Dish to Your Menu!', new_restaurant_dish_path(@restaurant), class: 'btn btn-primary' %>
       <% end %>

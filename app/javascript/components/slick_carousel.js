@@ -11,6 +11,6 @@ $('.autoplay').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 300000,
+  autoplaySpeed: 3000,
 });
 };
