@@ -25,8 +25,10 @@ class OrdersController < ApplicationController
           @wine_order = WineOrder.new(wine_id: wine.to_i, order: @order)
           @wine_order.save!
         end
+
           @order.calculate_costs
-          redirect_to order_path(@order)
+        redirect_to order_path(@order)
+
       else
           render "restaurant/show"
       end

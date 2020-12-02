@@ -9,16 +9,25 @@
 
 .restaurant-cart{
   position: sticky;
-  top: 100px;
+  top: 200px;
   width: 30vw;
   height: 40vh;
   border-style: solid 2px gray;
   overflow: hidden;
-  background: white;
+  background: $m-blue;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px;
   margin-left: 50px;
+  border-radius: 5px;
 }
+
+.restaurant-cart h4 {
+  font-family: 'Playfair Display', serif;
+  color: $m-gold;
+  text-align: center;
+  font-size: 30px;
+}
+
 
 .cards{
   display: grid;
@@ -30,7 +39,6 @@
 .card-dish-tasting {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 400px;
   width: 15vw;
   padding: 10px;
@@ -48,6 +56,19 @@
   object-fit: cover;
 }
 
+.card-dish {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 30px;
+  background-color: $m-blue;
+  border-radius: 10px;
+  padding-bottom:10px;
+}
+
+// .card-dish :hover {
+//   transform:scale(1.1);
+// }
+
 .card-dish > img {
   height: 150px;
   width: 100%;
@@ -63,7 +84,7 @@
 .card-dish p {
   font-size: 12px;
   opacity: .7;
-  margin: 0;
+  padding-left: 10px;
 }
 
 
