@@ -1,4 +1,6 @@
-
+.confirmation-header {
+  color: #e5ae35;
+}
 .preparing {
   background-color: #e5ae35;
   margin: 8vh;
@@ -30,7 +32,7 @@
 }
 
 .spotify1 {
-    margin: auto;
+
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -41,7 +43,7 @@
   ;
 
 
-
+    margin-left: 100px;
     height: 400px;
     width: 500px;
     margin: 100px auto;
@@ -219,9 +221,10 @@
 }
 
 .glow {
-  font-size: 80px;
+  font-size: 20px;
   color: #121b2a;
-  text-align: center;
+  text-align: end;
+
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
