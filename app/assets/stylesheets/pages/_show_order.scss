@@ -42,7 +42,7 @@
 
 
 
-    height: 700px;
+    height: 400px;
     width: 500px;
     margin: 100px auto;
     background: white;
@@ -64,9 +64,9 @@
 
     min-height: 200px;
     width: 50vw;
-    margin: 100px auto;
+    margin: 100px;
     background: white;
-    border-radius: 5px;
+    border-radius: 3px;
     text-align: left;
 }
 .instruction {
@@ -84,8 +84,10 @@
 
 
        min-height: 200px;
-    width: 135vh;
-    margin: 80px auto;
+
+    width: 50vw;
+    margin: 30px auto;
+
     border-radius: 5px;
     text-align: left;
     font-size: 40px;

@@ -60,7 +60,7 @@
          </li>
       </ul>
       <ul>
-        <li> <%= items.dish.meal_category %> : <%= items.dish.wine.name %></li>
+        <li> <%= items.dish.meal_category %> : <%= items.dish.wine.name if items.dish.wine.nil? == false %></li>
       </ul>
       <button type="button" class="btn btn-add-basket" id="tasting-basket" data-dish-id="<%= items.dish.id %>" data-dish-name="<%= items.dish.name %>">Add to Basket</button>
       <% end %>

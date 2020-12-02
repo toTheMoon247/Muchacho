@@ -49,7 +49,7 @@
             <%= image_tag "dish.jpg" %>
             <div class="restaurant-card-container">
                <div class="restaurant-card-title_and_flag d-flex justify-content-between">
-                <h4><b> <%= restaurant.name %> </b></h4>
+                <h4><b> <%= link_to restaurant.name, restaurant_path(restaurant.id) %> </b></h4>
               </div>
 
 
@@ -68,7 +68,7 @@
                 <div>
                   <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <h7><b>Excellent</b></h7>
+                <p><b>Excellent</b></p>
               </div>
             </div>
           </div>
