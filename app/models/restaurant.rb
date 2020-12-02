@@ -13,8 +13,12 @@ class Restaurant < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-    RATING = ["good", "very good"]
-    ICONS = []
+  RATING_IN_WORD = { 3 => "Good", 4 => "Very good", 5 => "Excellent" }
+  ICONS = {
+            'Vegan' => '<i class="fas fa-leaf"></i>',
+            'Gluten free'=> '<i class="fas fa-wheat"></i>',
+            'Vegetarian' => '<i class="fas fa-seedling"></i>',
+          }
 
   def alacarte_menu
     menus.where(tasting: false).first
@@ -24,18 +28,26 @@ class Restaurant < ApplicationRecord
     menus.where(tasting: true).first
   end
 
-
-
   def rating_in_words
-    return "Excellent"
+    if self.average_rating.present?
+      rating = self.average_rating.round
+      return RATING_IN_WORD[rating]
+    else
+      return "Not rated yet"
+    end
   end
 
   def dietary_icon
-    return "Icon"
-  end
-
-  def category_flag
-    return "French Flag"
+    if self.dietary.present?
+      icon = ICONS[self.dietary]
+      if icon.nil?
+        return "<div class='empty'></div>"
+      else
+        return icon
+      end
+    else
+      return "<div class='empty'></div>"
+    end
   end
 
 end

@@ -4,6 +4,11 @@
 
 .sidebar {
   color: #446484;
+  position: sticky;
+  top: 61px;
+  align-self: flex-start; // To check
+  height: calc(100vh - 61px); // To check
+  // width: 800px;
 }
 
 .simple_form {
@@ -13,7 +18,7 @@
 }
 
 .index-page-container {
-  margin-top: 128px;
+  margin-top: 61px;
   background-color: #f9f9f9;
 }
 
@@ -21,6 +26,16 @@
   .fa-leaf {
     margin-left: 8px;
   }
+}
+
+.sidebar-form {
+  .form-group {
+    margin-bottom: 32px;
+  }
+}
+
+.fa-leaf {
+  color: green;
 }
 
 // .restaurant-card h2 {

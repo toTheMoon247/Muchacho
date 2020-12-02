@@ -2,14 +2,20 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    if params[:search].present?
-      categories = params[:search][:categories].reject(&:blank?)
-      dietary = params[:search][:dietary].reject(&:blank?)
-      minimum_rating = params[:search][:average_rating].reject(&:blank?).first&.to_i # Either nil either an integer
-      @restaurants = @restaurants.where(category: categories) unless categories.empty?
-      @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
-      @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
-    end
+    # Fetch query params
+    query = params.dig(:search, :query) || ""
+    # Fetch Filters params
+    categories = params.dig(:search, :categories)&.reject(&:blank?) || []
+    dietary = params.dig(:search, :dietary)&.reject(&:blank?) || []
+    minimum_rating = params.dig(:search, :average_rating)&.reject(&:blank?)&.first&.to_i # Either nil either an integer
+    #If its blank do a
+    # if  filters & query do a
+    # If query exists do b
+    # if filters do d
+    @restaurants = @restaurants.where("name ILIKE ?", query) unless query.empty?
+    @restaurants = @restaurants.where(category: categories) unless categories.empty?
+    @restaurants = @restaurants.where(dietary: dietary) unless dietary.empty?
+    @restaurants = @restaurants.where("average_rating > ?",minimum_rating) unless minimum_rating.nil?
 
   end
 
