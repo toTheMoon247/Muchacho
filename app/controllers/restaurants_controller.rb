@@ -9,10 +9,6 @@ class RestaurantsController < ApplicationController
     categories = params.dig(:search, :categories)&.reject(&:blank?) || []
     dietary = params.dig(:search, :dietary)&.reject(&:blank?) || []
     minimum_rating = params.dig(:search, :average_rating)&.reject(&:blank?)&.first&.to_i # Either nil either an integer
-    #If its blank do a
-    # if  filters & query do a
-    # If query exists do b
-    # if filters do d
 
     # Get restaurant by a name
     # @restaurants = @restaurants.where("name ILIKE ?", query) unless query.empty?

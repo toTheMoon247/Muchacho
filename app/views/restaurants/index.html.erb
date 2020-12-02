@@ -46,7 +46,13 @@
       <% @restaurants.each do |restaurant| %>
         <div class="m-3 p-3">
           <div class="restaurant-card">
-            <%= image_tag "dish.jpg" %>
+            <% if restaurant.photo.attached?  %>
+              <%= cl_image_tag restaurant.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+               <%= image_tag "dish.jpg" %>
+              <!-- <img height="300" width="400" src="https://res.cloudinary.com/dzyd1ynmn/image/upload/v1605792731/no_img_available_skqx9j.png"> -->
+          <% end %>
+
             <div class="restaurant-card-container">
                <div class="restaurant-card-title_and_flag d-flex justify-content-between">
                 <h4><b> <%= restaurant.name %> </b></h4>
