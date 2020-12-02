@@ -11,12 +11,12 @@
       <div class="search-wrapper text-left pt-3">
         <h1 class="col-lg-12 text-center">Bringing restaurants to your living room</h1>
         <p class="col-lg-12 text-left py-2">Michelin star on the palm of your hand.</p>
-        <div class="col-lg-12 py-2 shadow-sm" >
+        <div class="col-lg-12 py-2" >
         <%= form_tag restaurants_path, method: :get do %>
           <%= text_field_tag "search[query]",
           params[:query],
           class: "form-control form-control-info",
-          placeholder: "Search for a restaurant or enter an address", id: "restaurant_address"
+          placeholder: "Please enter your address", id: "restaurant_address"
           %>
           <%= submit_tag "Search", class: "btn-lg btn-primary mt-4" %>
         <% end %>
