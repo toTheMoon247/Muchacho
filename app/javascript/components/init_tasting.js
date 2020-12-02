@@ -4,6 +4,7 @@ export const initTasting = () => {
 
  const tastingBasket = document.getElementById("tasting-basket");
   console.log(tastingBasket);
+  if (!tastingBasket) return 
   tastingBasket.addEventListener('click', e => {
     console.log(e);
     document.querySelector(".basket-info").insertAdjacentHTML("beforeend",`<div>Tasting Menu</div>`);

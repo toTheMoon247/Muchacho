@@ -29,7 +29,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :cost, :meal_category, :dietary, :photo, :instructions, :prep_time)
+    params.require(:dish).permit(:name, :cost, :meal_category, :dietary, :photo, :instructions, :prep_time, :threed_model, :preparation)
   end
 end
 
