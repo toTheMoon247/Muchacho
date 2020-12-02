@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("trix")
+require("@rails/actiontext")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -37,27 +38,29 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { backgroundVideo } from '../components/bideo';
 import { initAutocomplete } from '../components/init_autocomplete';
 import {slickCarousel} from '../components/slick_carousel';
+import { initTasting } from '../components/init_tasting';
 import { initCards } from '../components/init_cards';
 import { initWines } from '../components/init_wines';
-import { initTasting } from '../components/init_tasting';
+
 
 
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 
-var dropdown = document.getElementsByClassName("dropdown-btn");
+  var dropdown = document.getElementsByClassName("dropdown-btn");
 
-for (var i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  })};
+  for (var i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    })};
+
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   backgroundVideo();
@@ -67,6 +70,5 @@ for (var i = 0; i < dropdown.length; i++) {
   initWines();
   initAutocomplete();
   initTasting();
-  initProgress();
 });
 
