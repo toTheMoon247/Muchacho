@@ -40,3 +40,9 @@
   color: #e5ae35;
   transition: 0.3s;
 }
+
+@media(max-width: 768px) {
+ .new-font{
+   padding-left: 0;
+ }
+}
