@@ -5,7 +5,8 @@
 
 <h2><strong> <%= "Orders at your restaurants" if Restaurant.where("user_id = #{current_user.id}").count > 0 %> </strong></h2>
 <% Restaurant.where("user_id = #{current_user.id}").each do |r|  %>
-  <h4 class="px-2"><strong><%= r.name %></strong></h4>
+  <h4 class="px-2"><strong><%= r.name %></strong> </h4>
+  <%= link_to "Go to Restaurant!", restaurant_path(r.id), class: "btn btn-secondary m-2" %> 
     <% r.orders.order("created_at DESC").each do |order| %>
       <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result">
       <%= cl_image_tag r.photo.key, height: 150, width: 210, crop: :fill %>
