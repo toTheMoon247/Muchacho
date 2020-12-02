@@ -1,0 +1,13 @@
+<div class="container pt-5">
+  <h2 class="m-3">Restaurant Reviews</h2>
+<%= link_to 'Leave a review', new_restaurant_review_path(), class: 'btn btn-primary py-2 m-3' %>
+    <div>
+      <ul class="list-group">
+        <% @reviews.each do |review| %>
+          <li class="list-group-item">User: <%= review.name %>
+            <p class="pt-2">Review: <%=review.content %> </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>

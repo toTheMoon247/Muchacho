@@ -1,16 +1,14 @@
 <body style="background-color: #121b2a">
 
 <div class="container">
-  <div class="container mt-5 pt-5 confirmation-banner">
-    <div class="w3-animate-fading">
-      <h1 class="glow">Thank you for your Order!</h1>
-    </div>
+  <div class="container mt-5 pt-5 confirmation-banner text-center">
+      <h1 class="confirmation-header">Thank you for your Order!</h1>
   </div>
 
         <div class="container">
       <div class="preparing mx-3">
           <div class="row">
-            <h4>Your order is <%= @order.status.nil? ? "being prepared" : @order.status%>.</h4> 
+            <h4>Your order is <%= @order.status.nil? ? "being prepared" : @order.status%>.</h4>
           </div>
           <div class="row">
         <div class="loader">
@@ -50,8 +48,8 @@
         </div>
       </div>
     </div>
-    <div class="basket w-75">
-    
+    <div class="basket">
+
       <h4>Your order from: </h4>
       <h2 class="my-2"> <%= @restaurant.name %> </h2>
 
@@ -112,9 +110,14 @@
           <% @order.dish_orders.each do |dish_order| %>
             <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result w-100">
               <%= cl_image_tag dish_order.dish.photo.key, height: 200, width: 300, crop: :fill, class:"img-thumbnail" %>
-              <div class="product-text"> 
+              <div class="product-text">
                 <h5> <%= dish_order.dish.name %> </h5>
                 <p><%= dish_order.dish.instructions %></p>
+                <% if dish_order.dish.name == "Chocolate Cake" %>
+                  <div class="w3-animate-fading">
+                    <p class="glow">New 3D feature</p>
+                  </div>
+                <% end %>
             </div>
 
             </div>
@@ -123,7 +126,7 @@
     </div>
   </div>
 
- 
+
   </div>
 </div>
 
