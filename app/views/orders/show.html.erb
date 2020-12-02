@@ -5,18 +5,19 @@
       <h1 class="confirmation-header">Thank you for your Order!</h1>
   </div>
 
-        <div class="container">
+    <div class="container">
       <div class="preparing mx-3">
-          <div class="row">
-            <h4>Your order is <%= @order.status.nil? ? "being prepared" : @order.status%>.</h4>
-          </div>
-          <div class="row">
-        <div class="loader">
-      <ul class="ul1">
-        <li class="li1"></li>
-        <li class="li1"></li>
-        <li class="li1"></li>
-      </ul>
+      <div class="icon-container">
+        <div class="row">
+          <h4>Your order is <%= @order.status.nil? ? "being prepared" : @order.status%>.</h4>
+        </div>
+        <div class="row">
+      <div class="loader">
+        <ul class="ul1">
+          <li class="li1"></li>
+          <li class="li1"></li>
+          <li class="li1"></li>
+        </ul>
       <div class="wineglass left">
         <div class="top"></div>
       </div>
@@ -24,29 +25,30 @@
         <div class="top"></div>
           </div>
         </div>
+        </div>
       </div>
 <!-- Add class 'active' to progress -->
-  <div class="row px-3" style="width: 35%;">
-    <div class="col">
-      <ul id="progressbar">
-        <li class="step0 <%= 'active' if @order.status.nil? || @order.status == "being delivered" || @order.status == "ready" %>" id="step1"> PLACED </li>
-        <li class="step0 text-center <%= 'active' if @order.status == "being delivered" || @order.status == "ready" %>" id="step2">ON THE WAY</li>
-        <li class="step0 text-muted text-right <%= 'active' if @order.status == "ready" %>" id="step3">DELIVERED</li>
-      </ul>
-    </div>
+      <div class="pro-container row px-3" >
+        <div class="pro-col col">
+          <ul id="progressbar">
+            <li class="step0 <%= 'active' if @order.status.nil? || @order.status == "being delivered" || @order.status == "ready" %>" id="step1"> PLACED </li>
+            <li class="step0 text-center <%= 'active' if @order.status == "being delivered" || @order.status == "ready" %>" id="step2">ON THE WAY</li>
+            <li class="step0 text-muted text-right <%= 'active' if @order.status == "ready" %>" id="step3">DELIVERED</li>
+          </ul>
+       </div>
   </div>
 </div>
   </div>
   <a href="#nowhere" class="navicon"></a>
   <div class="toggle">
 
-  <div class="container d-flex justify-content-center">
-    <div class="spotify1">
-      <div class="container">
-        <div class="row">
-          <iframe src="https://open.spotify.com/embed/playlist/7hd5XLacuyCRIODSvDjfcG" width="400" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-      </div>
+  <div class="post-toggle">
+    <div class="spotify1 ">
+      
+        
+          <iframe src="https://open.spotify.com/embed/playlist/7hd5XLacuyCRIODSvDjfcG" width="100%" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        
+      
     </div>
     <div class="basket">
 

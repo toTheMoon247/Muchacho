@@ -4,7 +4,7 @@
 .preparing {
   background-color: #e5ae35;
   margin: 8vh;
-  padding: 5vh;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@
 
     margin-left: 100px;
     height: 400px;
-    width: 500px;
+    width: 100%;
     margin: 100px auto;
     background: white;
     border-radius: 5px;
@@ -65,7 +65,7 @@
 
 
     min-height: 200px;
-    width: 50vw;
+    width: 100%;
     margin: 100px;
     background: white;
     border-radius: 3px;
@@ -333,5 +333,40 @@
         }
       }
     }
+  }
+}
+
+.icon-container{
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-toggle{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 16px;
+}
+
+@media(max-width: 768px) {
+  .post-toggle{
+    grid-template-columns: 1fr;
+  }
+
+  .spotify1{
+    margin: auto;
+    margin-bottom: 30px;
+    width: 85%;
+  }
+
+  .basket{
+    width: 85%;
+    margin: auto;
+  }
+
+  .instruction {
+    width: 85%;
   }
 }

@@ -82,3 +82,22 @@
 #progressbar li {
   color: $m-blue
 }
+
+.pro-container{
+  width: 35%;
+  
+}
+
+
+
+
+@media(max-width: 768px) {
+  .pro-container{
+    width: 100%;
+    
+  }
+
+  .pro-col{
+    padding: 0;
+  }
+}

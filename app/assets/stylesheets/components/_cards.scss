@@ -179,6 +179,16 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+
+  .card-result{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .product-text{
+    width: auto;
+  }
+
 }
 
 @media(max-width: 768px) {
