@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<h2><strong>Orders at your restaurants</strong></h2>
+<h2><strong> <%= "Orders at your restaurants" if Restaurant.where("user_id = #{current_user.id}").count > 0 %> </strong></h2>
 <% Restaurant.where("user_id = #{current_user.id}").each do |r|  %>
   <h4 class="px-2"><strong><%= r.name %></strong></h4>
     <% r.orders.order("created_at DESC").each do |order| %>
