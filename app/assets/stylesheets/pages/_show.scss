@@ -79,13 +79,13 @@ list-style-type: none;
 }
 
 .tasting_description h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Pacifico', cursive;
   color: $m-blue;
   text-align: center;
 }
 
 .wine_description h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Pacifico', cursive;
   color: $m-blue;
   text-align: center;
 }
@@ -124,18 +124,35 @@ color: white;
 }
 
 .meal_category {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Pacifico', cursive;
   color: $m-blue;
   text-align: center;
+  font-size:40px;
+  position: absolute;
+  bottom:50px;
+  left:150px;
 }
 
-// .tasting_img {
-//
-// }
+.wine_carousel_desrciption {
+  position: absolute;
+  bottom: 140px;
+  right: 200px;
+  font-family: "Helvetica", "sans-serif";
+  color: $m-blue;
+}
 
-// .wine_img {
-//
-// }
+.tasting_img {
+// border-radius: 10px;
+position: absolute;
+top: 10px;
+left:10px;
+clip-path: polygon(0 1%, 100% 0, 100% 53%, 82% 100%, 0 100%, 0% 50%);
+}
+
+.wine_img {
+position: absolute;
+right :20px;
+}
 
 
 .bottom-container h2 {
@@ -168,23 +185,19 @@ color: white;
   color: #121b2a;
   padding: 7px 0px;
   position: absolute;
-  top: -15px;
+  top: -40px;
   left: 150px;
 }
 
 .link_to_modal {
-  position: absolute;
-  bottom: 45px;
-  right: 75px;
+
   color: white;
   text-align: left;
 }
 
 .card-dish-infos p {
   color: white;
-  position: absolute;
-  top: 45px;
-  right: 75px;
+
 }
 
 .card-dish-infos  {
@@ -192,9 +205,50 @@ color: white;
 }
 
 
+.new_order {
+  color: $m-blue;
+  text-align: center;
+}
+
+.title_price h2 {
+font-size: 15px;
+}
+
+.dish_instructions h2 {
+  font-size: 15px;
+}
+
+.wine_title h2 {
+  font-size: 15px;
+}
 
 
+.alacarte {
+  background-color: $m-cultured;
+  margin-left: 15px;
+  padding: 20px;
+  border-radius: 10px;
+}
 
+.reviews h4 {
+  font-family: 'Playfair Display', serif;
+  color: #121b2a;
+}
+
+.basket-info div {
+  font-family: "Helvetica", "sans-serif";
+  color: #121b2a;
+  text-align: center;
+  font-size: 20px;
+}
+
+.plus {
+position: absolute;
+top: 200px;
+left:500px;
+color: #121b2a;
+font-size: 60px;
+}
 
 
 
