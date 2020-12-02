@@ -27,15 +27,15 @@ User.destroy_all
 
 
 puts "Creating Fake Restaurants"
-daphnes = Restaurant.new(name: "Daphne's", description: "Traditional Italian Dining", category: "Italian", dietary: "Vegetarian", address: "114 Draycott Ave, Chelsea, SW3 3AE")
+daphnes = Restaurant.new(name: "Daphne's", description: "Traditional Italian Dining", category: "Italian", dietary: "Vegetarian", address: "114 Draycott Ave, Chelsea, SW3 3AE", average_rating: 3.70, dietary: "Gluten free")
 daphnes.save!
-scotts = Restaurant.new(name: "Scott's", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Mount Street, London, W1K 2HE")
+scotts = Restaurant.new(name: "Scott's", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Mount Street, London, W1K 2HE", average_rating: 3.20, dietary: "Gluten free")
 scotts.save!
-balthazar = Restaurant.new(name: "Balthazar", description: "French brasserie-style classics", category: "French", address: "4-6 Russell Street, Covent Garden, WC2B 5HZ")
+balthazar = Restaurant.new(name: "Balthazar", description: "French brasserie-style classics", category: "French", address: "4-6 Russell Street, Covent Garden, WC2B 5HZ",  average_rating: 4.20, dietary: "Gluten free")
 balthazar.save!
-sexyfish = Restaurant.new(name: "Sexy Fish", description: "Asain restaurant serving Japanese-inspired sushi", category: "Japanese", address: "Berkeley Square House, Berkeley Square, W1J 6BR")
+sexyfish = Restaurant.new(name: "Sexy Fish", description: "Asain restaurant serving Japanese-inspired sushi", category: "Japanese", address: "Berkeley Square House, Berkeley Square, W1J 6BR", average_rating: 4.20, dietary: "Vegan")
 sexyfish.save!
-scott = Restaurant.new(name: "Scott", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Back Church Lane, London EX1 1LX", average_rating: 4.99)
+scott = Restaurant.new(name: "Scott", description: "Dining and Cocktails in Mayfair", category: "British", address: "20 Back Church Lane, London EX1 1LX", average_rating: 4.99, dietary: "Vegan")
 scott.save!
 
 jsheeky = Restaurant.new(name: "J Sheeky", description: "Iconic London Fish Restaurant", category: "British", address: "28-32 St Martin's Court London WC2N 4AL")
@@ -44,7 +44,7 @@ jsheeky.save!
 puts "Creating a user"
 jack = User.create!(email:"muchacho@gmail.com", password:"password", admin: true)
 
-wagamama = Restaurant.create!(name: "Wagamama", description: "High quality food!", dietary: "veagan", category: "Japanese", address: "17 Bedford St, Covent Garden, London")
+wagamama = Restaurant.create!(name: "Wagamama", description: "High quality food!", dietary: "Gluten free", category: "Japanese", address: "17 Bedford St, Covent Garden, London")
 the_alchemist = Restaurant.create!(name: "The Alchemist", description: "Innovative Food!", category: "American", address: "6 Bevis Marks, Aldgate, London")
 texture = Restaurant.create!(name: "Texture", description: "With its light Euro-Scandinavian menu and Nordic flare for design, Marylebone's Michelin-starred Texture is a firm favourite amongst stars. Look out for Victoria Beckham at the champagne bar or sauntering towards the private dining area.", category: "British", address: "34 Portman St, Marylebone, London W1H 7BY")
 the_swan = Restaurant.create!(name: "The Swan", description: "With dazzling river views (in which a proud St Paul's takes centre stage) an upscale, cosy interior and locally sourced dishes dreamt up by Allan Pickett, The Swan at The Globe is a firm favourite amongst big-wig theatre-lovers.", dietary: "veagan", category: "British", address: "21 New Globe Walk, Bankside, London SE1 9DT")
