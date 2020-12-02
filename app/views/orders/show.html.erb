@@ -1,27 +1,135 @@
-<div class="container mt-5 pt-5 confirmation-banner">
-  <h1>Thank you for your Order!</h1>
+<body style="background-color: #121b2a">
+
+<div class="container">
+  <div class="container mt-5 pt-5 confirmation-banner text-center">
+      <h1 class="confirmation-header">Thank you for your Order!</h1>
+  </div>
+
+        <div class="container">
+      <div class="preparing mx-3">
+          <div class="row">
+            <h4>Your order is <%= @order.status.nil? ? "being prepared" : @order.status%>.</h4>
+          </div>
+          <div class="row">
+        <div class="loader">
+      <ul class="ul1">
+        <li class="li1"></li>
+        <li class="li1"></li>
+        <li class="li1"></li>
+      </ul>
+      <div class="wineglass left">
+        <div class="top"></div>
+      </div>
+      <div class="wineglass right">
+        <div class="top"></div>
+          </div>
+        </div>
+      </div>
+<!-- Add class 'active' to progress -->
+  <div class="row px-3" style="width: 35%;">
+    <div class="col">
+      <ul id="progressbar">
+        <li class="step0 <%= 'active' if @order.status.nil? || @order.status == "being delivered" || @order.status == "ready" %>" id="step1"> PLACED </li>
+        <li class="step0 text-center <%= 'active' if @order.status == "being delivered" || @order.status == "ready" %>" id="step2">ON THE WAY</li>
+        <li class="step0 text-muted text-right <%= 'active' if @order.status == "ready" %>" id="step3">DELIVERED</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  </div>
+  <a href="#nowhere" class="navicon"></a>
+  <div class="toggle">
+
+  <div class="container d-flex justify-content-center">
+    <div class="spotify1">
+      <div class="container">
+        <div class="row">
+          <iframe src="https://open.spotify.com/embed/playlist/7hd5XLacuyCRIODSvDjfcG" width="400" height="400" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="basket">
+
+      <h4>Your order from: </h4>
+      <h2 class="my-2"> <%= @restaurant.name %> </h2>
+
+
+            <div class="product-infos">
+            <% dishes = [] %>
+            <% @order.dish_orders.each do |dish_order| %>
+              <% dishes << [dish_order.dish.name, dish_order.dish.cost]  %>
+            <% end %>
+
+            <div class="text-right">
+              <% b = Hash.new(0) %>
+              <% c = Hash.new(0) %>
+              <% dishes.each do |v| %>
+                <% b[v[0]] += 1 %>
+                <% c["#{v[0]}_price"] += v[1] %>
+              <% end %>
+
+              <% b.each do |k,v| %>
+              <div> <%= "#{v} x #{k} - £#{c["#{k}_price"] / 100}"  %> </div>
+              <% end %>
+
+            <% wines = [] %>
+            <% @order.wine_orders.each do |wine_order| %>
+
+              <% wines << [wine_order.wine.name, wine_order.wine.cost]  %>
+            <% end %>
+
+              <% ba = Hash.new(0) %>
+              <% ca = Hash.new(0) %>
+              <% wines.each do |v| %>
+                <% ba[v[0]] += 1 %>
+                <% ca["#{v[0]}_price"] += v[1] %>
+              <% end %>
+
+              <% ba.each do |k,v| %>
+              <div> <%= "#{v} x #{k} - £#{ca["#{k}_price"] / 100}"  %> </div>
+              <% end %>
+
+
+
+            <div class="border-top mt-3 py-2"> <h4> Total: £<%= @order.total_cost_cents %></h4></div>
+          </div>
+          <div class="text-left">
+          <h5>Any issues contact us on:</h5>
+          <h6> <%= @order.restaurant.phone_number %></h6>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  <div class="instruction w-100">
+    <div class="container">
+      <div class="row">
+        <h3 class="col-12">Instructions:</h3>
+          <% @order.dish_orders.each do |dish_order| %>
+            <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result w-100">
+              <%= cl_image_tag dish_order.dish.photo.key, height: 200, width: 300, crop: :fill, class:"img-thumbnail" %>
+              <div class="product-text">
+                <h5> <%= dish_order.dish.name %> </h5>
+
+                <p><%= dish_order.dish.preparation %></p>
+              </div>
+
+                <div class="d-flex flex-column w-50">
+                <div class="w3-animate-fading">
+                  <%= link_to "Plate it in AR", dish_order.dish.threed_model, class:"glow" if dish_order.dish.threed_model.nil? ==false %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
 </div>
 
-<div class="container mt-5 p-5 confirmation-banner d-flex justify-content-center">
-    <div class="row">
-      <h4>You have ordered from <%= @restaurant.name %></h4>
-      <% @order.dish_orders.each do |dish_order| %>
-          <div class="card-product col-12 ">
-            <div class="product-infos">
-            <% if dish_order.dish.photo.attached?  %>
-                <%= cl_image_tag dish_order.dish.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <img height="300" width="400" src="https://res.cloudinary.com/dzyd1ynmn/image/upload/v1605792731/no_img_available_skqx9j.png">
-                http://res.cloudinary.com/dzyd1ynmn/image/upload/c_fill,h_300,w_400/1askgpvmvupv9jbodyzmcujo6cva
-              <% end %>
-            <h4> <%= dish_order.dish.name %> </h4>
-            <p>£ <%= dish_order.dish.cost / 100 %></p >
-            </div>
-          </div>
-      <% end %>
-        <% @order.wine_orders.each do |wine_order| %>
-          <h4> <%= wine_order.wine.name %> </h4>
-        <% end %>
-      <h3>Basket Total : £<%= @order.total_cost_cents %></h3>
-    </div>
-</div>
+</body>
+

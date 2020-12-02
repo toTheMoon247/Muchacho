@@ -1,7 +1,7 @@
 
 <div class="row m-0">
   <div class="left-col col-6 p-5">
-    <h4 class="text-info mt-3 pt-3">Hey Sam, let's create your new restaurant</h4>
+    <h4 class="text-info mt-3 pt-3">Let's create your new restaurant</h4>
     <div class="form-top">
       <p class="text-secondary mt-5">First things first: Let's start with the basics</p>
       <h5 class="text-muted"></h5>
@@ -11,10 +11,10 @@
       <%= f.input :photo, as: :file %>
       <div class="row">
         <div class="col-6">
-         <%= f.input :category, prompt: "Category", collection: ["b", "c"], as: :select, label: false, placeholder: 'Category'%>
+         <%= f.input :category, prompt: "Category", collection: ["British", "French", "Japanese"], as: :select, label: false, placeholder: 'Category'%>
         </div>
         <div class="col-6">
-          <%= f.input :dietary, prompt: "Dietary", collection: ["Vegan", "Vegaterian"], as: :select, label: false, placeholder: 'Dietary'%>
+          <%= f.input :dietary, prompt: "Dietary", collection: ["Vegan", "Vegaterian", "Gluten Free", "None"], as: :select, label: false, placeholder: 'Dietary'%>
         </div>
       </div>
       <hr>
