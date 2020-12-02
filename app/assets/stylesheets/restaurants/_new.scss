@@ -3,7 +3,7 @@ body {
 }
 
 .right-col {
-  background-image: asset_url('assets/lunch.jpeg');
+  background-image: asset_url('assets/lunch.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -18,4 +18,9 @@ body {
   label {
     text-align: left;
   }
+}
+
+.wine_description {
+  height: 110px;
+  border-left: none;
 }
