@@ -441,19 +441,17 @@
   </div>
 </div>
 
-<div class="reviews ml-5 mt-5">
-  <h4 class="m-t">Read our Reviews! </h4>
-    <div>
-      <ul class="list-group">
-        <% @restaurant.reviews.each do |review| %>
-          <li class="list-group-item">User: <%= review.name %>
-            <p class="pt-2">Review: <%=review.content %> </p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary py-2 m-3' %>
-</div>
+<div class="container p-5">
+      <form action="<%= restaurant_reviews_path(@restaurant) %>" >
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Reviews</span>
+      </button>
+    </form>
+ </div>
+
 
 
 
