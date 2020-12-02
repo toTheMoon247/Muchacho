@@ -48,6 +48,7 @@
     <div class="tasting_description col" id="tasting">
       <h1> Tasting Menu</h1>
       <% @restaurant.menus.each do |menu| %>
+
         <% if menu.tasting == true  %>
           <% menu.menu_items.each do |items| %>
             <ul>
@@ -58,6 +59,7 @@
           <% end %>
             <button type="button" class="btn btn-add-basket" id="tasting-basket" data-dish-id="<%= menu.menu_items.pluck(:dish_id).join(",") %>" data-dish-name="Tasting Menu">Choose our Tasting Menu!</button>
         <% end %>
+
       <% end %>
     </div>
     <div class="wine_description col">
@@ -402,6 +404,7 @@
 						<% end %>
 					<% end %>
 				<% end %>
+
 			</div>
     </div>
 
@@ -423,5 +426,18 @@
     <%# <%= link_to "View Basket", dashboard_path, class: 'btn btn-checkout' %>
     <% end %>
   </div>
+</div>
+<div class="container">
+  <h4 class="m-3">Reviews</h4>
+    <div>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item">User: <%= review.name %>
+            <p class="pt-2">Review: <%=review.content %> </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary py-2 m-3' %>
 </div>
 

@@ -5,6 +5,7 @@ class Restaurant < ApplicationRecord
   has_many :menu_items, through: :menus
   has_many :orders, dependent: :destroy
   has_many :dishes, through: :menu_items
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -12,11 +13,12 @@ class Restaurant < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-    def alacarte_menu
-      menus.where(tasting: false).first
-    end
 
-    def tasting_menu
+  def alacarte_menu
+      menus.where(tasting: false).first
+  end
+
+  def tasting_menu
       menus.where(tasting: true).first
-    end
+  end
 end

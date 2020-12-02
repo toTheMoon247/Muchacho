@@ -76,7 +76,6 @@
 
  <div style="border-bottom: 1px solid lightgrey !important;"  class="card-result">
   <%= cl_image_tag order.restaurant.photo.key, height: 150, width: 210, crop: :fill %>
-
   <div class="product-text">
     <div><h2><%= order.created_at.strftime('%A %d %B at %I:%M%p') %> - <%= order.restaurant.name %></h2></div>
     <%= link_to "Checkout with this Order!", order_path(order), class: 'btn btn-primary' %>

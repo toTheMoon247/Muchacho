@@ -1,61 +1,79 @@
-<div class="index-container">
-<h1>Restaurants Near You</h1>
+<div class="index-page-container d-flex">
+  <div class="sidebar ml-5 pr-5 border-right border-secondary">
+    <!-- Sidebar here -->
 
-    <%= simple_form_for :search, url: restaurants_path, method: :get do |f| %>
-      <div class="sidenav">
-          <p class="dropdown-btn" id="dropdown-category">Cuisine
-          <i class="fa fa-caret-down"></i>
-          </p>
-        <div class="dropdown-container">
 
-          <%= f.input :categories, collection: ["British", "French", "Japanese"], as: :check_boxes, wrapper_html: { class: 'category_options' } %>
+
+     <%= simple_form_for :search, url: restaurants_path, method: :get do |f|%>
+      <%= f.input :categories, collection: ["British", "French", "Japanese"], as: :check_boxes %>
+      <%= f.input :dietary, collection: ["Vegetarian", "Vegan", "Gluten-Free"], as: :check_boxes %>
+      <!-- Rating Section start here, as part of the simple form -->
+      <fieldset class="form-group check_boxes required search_average_rating">
+        <legend class="col-form-label pt-0">Average rating <abbr title="required">*</abbr></legend>
+        <input type="hidden" name="search[average_rating][]" value="">
+        <div class="form-check">
+          <input class="form-check-input check_boxes required" type="checkbox" value="3" name="search[average_rating][]" id="search_average_rating_3">
+          <label class="form-check-label collection_check_boxes" for="search_average_rating_3">
+            <div>
+              <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+            </div>
+          </label>
         </div>
-          <p class="dropdown-btn" id="dropdown-dietary">Dietary
-          <i class="fa fa-caret-down"></i>
-          </p>
-        <div class="dropdown-container">
-          <%= f.input :dietary, collection: ["Vegetarian", "Vegan", "Gluten-Free"], as: :check_boxes, wrapper_html: { class: 'dietary_options' }  %>
+        <div class="form-check">
+          <input class="form-check-input check_boxes required" type="checkbox" value="4" name="search[average_rating][]" id="search_average_rating_4">
+          <label class="form-check-label collection_check_boxes" for="search_average_rating_4">
+            <div>
+              <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+            </div>
+          </label>
         </div>
-          <p class="dropdown-btn" id="dropdown-rating">Rating
-          <i class="fa fa-caret-down"></i>
-          </p>
-        <div class="dropdown-container">
-          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-          <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
+        <div class="form-check">
+          <input class="form-check-input check_boxes required" type="checkbox" value="5" name="search[average_rating][]" id="search_average_rating_5">
+          <label class="form-check-label collection_check_boxes" for="search_average_rating_5">
+            <div>
+              <a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></a>
+            </div>
+          </label>
         </div>
-        <%= f.input :query , as: :hidden, input_html: {value: params.dig(:search, :query)} %>
-        <%= f.button :submit, "Filter Results" %>
-      </div>
+      </fieldset>
+      <%= f.input :query , as: :hidden, input_html: {value: params.dig(:search, :query)} %>
+      <%= f.button :submit, "Filter Results", class: "btn btn-outline-secondary" %>
     <% end %>
+  </div>
 
-<!-- Page content -->
-  <div class="main">
-      <div class="row">
-        <% @restaurants.each do |restaurant| %>
-          <%= link_to(restaurant_path(restaurant)) do %>
-            <div class="col-6">
-              <div class="restaurant-card">
-                <% if  restaurant.tasting_menu.present? %>
-                <i class="fas fa-certificate"></i>
-                <% end %>
-                <% if restaurant.photo.attached?  %>
-                  <%= cl_image_tag restaurant.photo.key, height: 150, width: 210, crop: :fill %>
-                <% else %>
-                <img src="https://source.unsplash.com/N_Y88TWmGwA/150x150" />
 
-                <% end %>
-                <h2> <%= restaurant.name %></h2>
-                <p class= "content"><%= restaurant.description %></p>
+    <div class="cards">
+      <% @restaurants.each do |restaurant| %>
+        <div class="m-3 p-3">
+          <div class="restaurant-card">
+            <%= image_tag "dish.jpg" %>
+            <div class="restaurant-card-container">
+               <div class="restaurant-card-title_and_flag d-flex justify-content-between">
+                <h4><b> <%= link_to restaurant.name, restaurant_path(restaurant.id) %> </b></h4>
+              </div>
+
+
+              <div class="restaurant-card-dietary_and_price">
+                <div class="d-flex property">
+                  <p><small><%= restaurant.dietary %></small></p>
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="d-flex property">
+                  <p><small>High end</small></p>
+                  <p><small>£££</small></p>
+                </div>
+              </div>
+
+              <div class="restaurant-card-rating d-flex">
+                <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p><b>Excellent</b></p>
               </div>
             </div>
-          <% end %>
-        <% end %>
-      </div>
-  </div>
+          </div>
+        </div>
+       <% end %>
+    </div>
+
 </div>
-
-
-
-
-
