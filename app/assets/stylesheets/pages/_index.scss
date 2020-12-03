@@ -58,6 +58,32 @@ p {
   color: white;
 }
 
+.tasting-circle {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  border-radius: 50%;
+  font-size: 12px;
+  color: $m-gold;
+  text-align: center;
+  background: $m-blue;
+  display: flex;
+  align-items: center;
+  font-style: bold;
+  top: -15px;
+  right: -15px;
+  font-family: 'Playfair Display', serif;
+
+}
+
+.index-card {
+  position: relative;
+}
+
+.restaurant-card-title_and_flag a {
+font-family: 'Playfair Display', serif;
+}
+
 // .restaurant-card h2 {
 //   font-size: 16px;
 //   font-weight: bold;
