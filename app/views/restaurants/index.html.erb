@@ -45,6 +45,9 @@
       <% @restaurants.each do |restaurant| %>
         <div class="m-3 p-3">
           <div class="restaurant-card">
+            <% if  restaurant.tasting_menu.present? %>
+            <div class="tasting-circle">TASTING MENU</div>
+            <% end %>
             <% if restaurant.photo.attached?  %>
               <%= cl_image_tag restaurant.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>

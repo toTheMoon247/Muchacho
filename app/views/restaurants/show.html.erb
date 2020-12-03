@@ -7,7 +7,7 @@
     <p><%= @restaurant.category %> <i class="fas fa-grip-lines-vertical"></i> <%= @restaurant.dietary %></p>
   </div>
   <div class="col-4" style="margin-left: -100px;">
-    <iframe src="https://open.spotify.com/embed/playlist/7hd5XLacuyCRIODSvDjfcG" width="450" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="<%=@restaurant.spotify_url%>" width="450" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </div>
 </div>
 
@@ -191,8 +191,8 @@
 										</div>
 
 
-											<p><%= items.dish.instructions if items.dish.prep_time == 0%></p>
-											<p><%= "#{items.dish.prep_time} minutes to prepare!" if items.dish.prep_time > 0 %></p>
+											<p><%= "Ready to serve" if items.dish.prep_time.nil? %></p>
+											<p><%= "#{items.dish.prep_time} minutes to prepare!" if items.dish.prep_time.nil? == false %></p>
 
 
 
@@ -303,8 +303,8 @@
 											</div>
 										</div>
 
-											<p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
-											<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+											<p><%= "Ready to serve" if items.dish.prep_time.nil? %></p>
+                      <p><%= "#{items.dish.prep_time} minutes to prepare!" if items.dish.prep_time.nil? == false %></p>
 
 									</div>
 									<h5 class="card-trip-pricing btn-white">£<%= items.dish.cost / 100  %></h5>
@@ -413,8 +413,8 @@
 												</div>
 											</div>
 										</div>
-											<p><%= items.dish.preparation if items.dish.prep_time == 0%></p>
-											<p><%= "Ready in only #{items.dish.prep_time}minutes." if items.dish.prep_time > 0 %></p>
+											<p><%= "Ready to serve" if items.dish.prep_time.nil? %></p>
+                      <p><%= "#{items.dish.prep_time} minutes to prepare!" if items.dish.prep_time.nil? == false %></p>
 									</div>
 									<h5 class="card-trip-pricing btn-white">£<%= items.dish.cost / 100  %></h5>
 								  </div>
