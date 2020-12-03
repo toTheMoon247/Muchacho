@@ -2,6 +2,7 @@
   <div class="sidebar pt-5 pl-5 pr-5">
     <!-- Sidebar here -->
 
+
      <%= simple_form_for :search, url: restaurants_path, html: {class: "sidebar-form"}, method: :get do |f|%>
       <%= f.input :categories, collection: ["British", "French", "Japanese"], as: :check_boxes, label: "Category", required: false %>
       <%= f.input :dietary, collection: ["Vegetarian", "Vegan", "Gluten-Free"], as: :check_boxes, label: "Dietary", required: false %>
