@@ -1,5 +1,5 @@
 .restaurant-card {
-  height: 320px;
+  height: 344px;
   color: #446484;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -10,7 +10,7 @@
   }
   .fa-star {
     color: #f2a339;
-    text-shadow: 0 0 1px grey;
+    text-shadow: 0 0 1px black;
 
   }
 }
@@ -44,6 +44,11 @@
   h7 {
   margin-left: 24px;
   }
+}
+
+.flag img {
+  height: 16px;
+  width: 16px;
 }
 
 

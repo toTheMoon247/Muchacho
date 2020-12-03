@@ -20,6 +20,20 @@ class Restaurant < ApplicationRecord
             'Gluten free'=> '<i class="fas fa-wheat"></i>',
             'Vegetarian' => '<i class="fas fa-seedling"></i>',
           }
+  FLAG_SUFFIX = {
+                  "American" => 'us',
+                  "British"  => 'uk',
+                  "French"   => 'fr',
+                  "Italian"  => 'it',
+                  "Japanese" => 'jp',
+                }
+
+  DIETARY_ICON_FILENAME = {
+                  "Vegan" => 'dietary_vegan.png',
+                  "Vegetarian"  => 'dietary_vegetarian.png',
+                  "Gluten free"   => 'dietary_gluten_free.png',
+                  "fallback"  => 'dietary_fallback.png',
+                }
 
   def alacarte_menu
     menus.where(tasting: false).first
@@ -49,6 +63,23 @@ class Restaurant < ApplicationRecord
     else
       return "<div class='empty'></div>"
     end
+  end
+
+  def dietary_icon_file_name
+    if self.dietary.present?
+      dietary_icon_file_name = DIETARY_ICON_FILENAME[self.dietary]
+    else
+      dietary_icon_file_name = DIETARY_ICON_FILENAME['fallback']
+    end
+  end
+
+  def flag_file_name
+    suffix = FLAG_SUFFIX[self.category]
+    flag_file_name = "flag-#{suffix}.png"
+    if flag_file_name == "flag-.png"
+      return "flag-fallback.png"
+    end
+    return flag_file_name
   end
 
 
