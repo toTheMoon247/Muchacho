@@ -24,7 +24,7 @@
                 <% else %>
                   <img height="300" width="400" src="https://res.cloudinary.com/dzyd1ynmn/image/upload/v1605792731/no_img_available_skqx9j.png">
                 <% end %>
-                <i class="fas fa-plus-circle plus"></i>
+
                 <% if items.dish.wine.present? && items.dish.wine.photo.attached? %>
                   <%= cl_image_tag items.dish.wine&.photo&.key, height:350, width: 120, crop: :fill, :class => "wine_img" %>
                 <% end %>
@@ -75,7 +75,7 @@
             <% menu.menu_items.each do |items| %>
               <ul>
                 <% if items.dish.wine.present? %>
-                <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>"><i class="fas fa-wine-glass-alt"> </i><%= items.dish.wine.name if items.dish.wine.nil? == false%></button></li>
+                <li> <button type="button" class="btn-wine" id="wine_basket" data-dish-id="<%= items.dish.wine.id %>" data-dish-name="<%= items.dish.wine.name %>"><i class="fas fa-wine-glass-alt p-2"> </i><%= items.dish.wine.name if items.dish.wine.nil? == false%></button></li>
                 <% else %>
                 <li></li>
                 <% end %>
