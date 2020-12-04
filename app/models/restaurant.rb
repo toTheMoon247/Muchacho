@@ -32,6 +32,7 @@ class Restaurant < ApplicationRecord
                   "Vegan" => 'dietary_vegan.png',
                   "Vegetarian"  => 'dietary_vegetarian.png',
                   "Gluten free"   => 'dietary_gluten_free.png',
+                  "None" => 'dietary_fallback.png',
                   "fallback"  => 'dietary_fallback.png',
                 }
 
