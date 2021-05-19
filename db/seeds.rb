@@ -16,13 +16,13 @@ scott = Restaurant.create!(name: "Scott's Restaurant", description: "The sophist
 
 puts "Dropping old tables"
 
-MenuItem.destroy_all
-Dish.destroy_all
-Wine.destroy_all
-Menu.destroy_all
+# MenuItem.destroy_all
+# Dish.destroy_all
+# Wine.destroy_all
+# Menu.destroy_all
 
-Restaurant.destroy_all
-User.destroy_all
+# Restaurant.destroy_all
+# User.destroy_all
 
 
 
